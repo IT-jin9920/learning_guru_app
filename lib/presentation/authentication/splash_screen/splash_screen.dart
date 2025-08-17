@@ -173,7 +173,7 @@ class _SplashScreenState extends State<SplashScreen> {
     if (role == null && !isRegistered && !isLoggedIn && !setLoginRegisterStatus) {
       print("➡️ First-time user → Walkthrough");
       print("Flow: Splash → Walkthrough → UserSelect → Register → OTP → Setup → Bank → Docs → Home");
-      Get.off(() => WalkthroughScreen());
+      Get.offNamed(RoutesName.walk);
       return;
     }
 
@@ -181,7 +181,7 @@ class _SplashScreenState extends State<SplashScreen> {
     if (role != null && !isRegistered) {
       print("➡️ Role exists but not registered → Register");
       print("Flow: Splash → Register → OTP → Setup → Bank → Docs → Home");
-      Get.off(() => const RegisterScreen());
+      Get.offNamed(RoutesName.register);
       return;
     }
 
@@ -189,7 +189,7 @@ class _SplashScreenState extends State<SplashScreen> {
     if (isLoggedIn && isRegistered && !setLoginRegisterStatus) {
       if (!profileDone) {
         print("➡️ Profile not completed → SetupProfileScreen");
-        Get.off(() => const SetupProfileScreen());
+        Get.offNamed(RoutesName.setupProfileImg);
         return;
       }
 
@@ -201,13 +201,13 @@ class _SplashScreenState extends State<SplashScreen> {
 
       if (!bankDone) {
         print("➡️ Bank details not updated → BankDetailsPage");
-        Get.off(() => BankDetailsPage());
+        Get.offNamed(RoutesName.bankDetails);
         return;
       }
 
       if (!docDone) {
         print("➡️ Documents not uploaded → VerifyDocumentsPage");
-        Get.off(() => VerifyDocumentsPage());
+        Get.offNamed(RoutesName.verifyDocuments);
         return;
       }
     }
@@ -231,7 +231,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // ✅ CASE 5: Registered but not logged in → Login setLoginRegisterStatus && !isLoggedIn
      if ( role == null || !isRegistered || !isLoggedIn || setLoginRegisterStatus) {
       print("➡️ Registered but not logged in → Login");
-      Get.off(() => const LoginScreen());
+      Get.offNamed(RoutesName.login);
       return;
     }
 
@@ -258,7 +258,7 @@ class _SplashScreenState extends State<SplashScreen> {
       middleText: "Something went wrong. Please login again.",
       confirm: ElevatedButton(
         onPressed: () {
-          Get.off(() => const LoginScreen());
+          Get.offNamed(RoutesName.login);
         },
         child: const Text("OK"),
       ),

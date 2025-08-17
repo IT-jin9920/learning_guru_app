@@ -143,12 +143,14 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                     child: InkWell(
                                       borderRadius: BorderRadius.circular(100),
                                       onTap: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => NotificationsScreen(),
-                                          ),
-                                        );
+                                        Get.to(() => const NotificationsScreen());
+
+                                        // Navigator.push(
+                                        //   context,
+                                        //   MaterialPageRoute(
+                                        //     builder: (context) => NotificationsScreen(),
+                                        //   ),
+                                        // );
                                       },
                                       child: Container(
                                         height: 60,
@@ -179,13 +181,15 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                         child: InkWell(
                                           borderRadius: BorderRadius.circular(100),
                                           onTap: () {
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    const SearchScreen(),
-                                              ),
-                                            );
+
+                                           Get.to(  const SearchScreen(),);
+                                            // Navigator.push(
+                                            //   context,
+                                            //   MaterialPageRoute(
+                                            //     builder: (context) =>
+                                            //         const SearchScreen(),
+                                            //   ),
+                                            // );
                                           },
                                           child: Container(
                                             height: 60,
@@ -385,12 +389,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       const SizedBox(height: AppConstants.spacingExtraLarge),
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => EarningReportScreen(),
-                            ),
-                          );
+                          Get.to(EarningReportScreen(),);
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //     builder: (context) => EarningReportScreen(),
+                          //   ),
+                          // );
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

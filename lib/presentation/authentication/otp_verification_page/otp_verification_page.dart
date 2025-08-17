@@ -85,10 +85,12 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
               padding: const EdgeInsets.only(left: 16),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LoginScreen()),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => const LoginScreen()),
+                  // );
+                  Get.offAllNamed(RoutesName.login);
+
                 },
                 child: Container(
                   height: 40,

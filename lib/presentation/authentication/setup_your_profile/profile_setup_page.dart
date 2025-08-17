@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:learning_guru_app/presentation/app_navigation/bottom_navigation_page.dart';
+import 'package:learning_guru_app/routes/app_routes.dart';
 import 'package:learning_guru_app/widgets/custome_color_bg.dart';
 
 import '../../../core/services/storage_service.dart';
@@ -245,7 +246,9 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
 
               //await StorageService.setProfileCompleted(true);
              // print("setProfileCompleted true");
-              Get.to(() => BottomNavigationPage());
+             //  Get.to(() => BottomNavigationPage());
+              Get.toNamed(RoutesName.navigation);
+
 
             },
           ):
@@ -284,7 +287,9 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
 
               await StorageService.setProfileCompleted(true);
               print("setProfileCompleted true");
-              Get.to(() => MentoringSetupScreen());
+              // Get.to(() => MentoringSetupScreen());
+              Get.toNamed(RoutesName.mentoringSetup);
+
 
             },
           ),

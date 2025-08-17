@@ -14,4 +14,15 @@ class RoutesName {
   static const String profile = '/profile';
   static const String settings = '/settings';
   static const String navigation = '/navigation';
+
+  static const String setupProfileImg = '/setup-profile';
+  static const String bankDetails = '/bank-details';
+  static const String verifyDocuments = '/verify-documents';
+
+  static const String profileSetupInfo = '/profile-setup';
+  static const String mentoringSetup = '/mentoring-setup';
+
+  static const String resetPassword = '/reset-password';
+  static const forgotPassword = '/forgot-password';
+
 }

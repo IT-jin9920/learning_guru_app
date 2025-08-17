@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:learning_guru_app/routes/app_routes.dart';
 import 'package:learning_guru_app/widgets/custome_color_bg.dart';
 
 import '../../../res/colors/app_color.dart';
@@ -161,8 +162,9 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                           //   context,
                           //   MaterialPageRoute(builder: (context) => const ResetPasswordPage()),
                           // );
-                  
-                          Get.to(ResetPasswordPage());
+
+                          Get.offAllNamed(RoutesName.resetPassword);
+
                         },
                       ),
                       const SizedBox(height: AppConstants.spacingMedium),

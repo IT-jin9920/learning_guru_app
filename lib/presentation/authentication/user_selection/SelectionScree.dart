@@ -59,7 +59,7 @@ class _UserSelectionScreenState extends State<UserSelectionScreen> {
 
   //  Get.toNamed(RoutesName.login);
   //  Get.toNamed(RoutesName.walk);
-    Get.off(() => const RegisterScreen());
+    Get.offNamed(RoutesName.register);
   }
 
   // Future<void> _selectRole(String role) async {

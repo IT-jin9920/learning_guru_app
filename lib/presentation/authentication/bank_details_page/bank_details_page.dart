@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:learning_guru_app/routes/app_routes.dart';
 import 'package:learning_guru_app/widgets/custome_color_bg.dart';
 
 import '../../../core/services/storage_service.dart';
@@ -233,7 +234,9 @@ class _BankDetailsPageState extends State<BankDetailsPage> {
                 // }
 
                 await StorageService.setBankDetailsUpdated(true);
-                Get.to(() => VerifyDocumentsPage());
+                // Get.to(() => VerifyDocumentsPage());
+                Get.toNamed(RoutesName.verifyDocuments);
+
               }
 
 

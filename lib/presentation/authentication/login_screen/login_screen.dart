@@ -429,6 +429,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:learning_guru_app/routes/app_routes.dart';
 
 import '../../../core/services/storage_service.dart';
 import '../../../res/colors/app_color.dart';
@@ -474,17 +475,16 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return WillPopScope(
       onWillPop: () async {
-        Get.to(const UserSelectionScreen());
+        // Get.to(const UserSelectionScreen());
+        Get.offAllNamed(RoutesName.userSelection);
+
         return false;
       },
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: GradientBackground(
           child: Scaffold(
-            appBar: AppBar(
-              toolbarHeight: 0,
-              backgroundColor: AppColors.white,
-            ),
+            appBar: AppBar(toolbarHeight: 0, backgroundColor: AppColors.white),
             backgroundColor: Colors.transparent,
             resizeToAvoidBottomInset: false,
             body: SafeArea(
@@ -529,7 +529,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   SizedBox(height: height * 0.015),
                                   UIHelper.mediumText(
                                     text:
-                                    'Please provide us your basic details\nbelow and get into the system',
+                                        'Please provide us your basic details\nbelow and get into the system',
                                     fontSize: width * 0.038,
                                     color: AppColors.grey,
                                   ),
@@ -563,11 +563,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                   Align(
                                     alignment: Alignment.centerRight,
                                     child: TextButton(
-                                      onPressed: () => Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (_) => const ForgotPasswordPage(),
-                                        ),
+                                      // onPressed: () => Navigator.pushReplacement(
+                                      //   context,
+                                      //   MaterialPageRoute(
+                                      //     builder: (_) => const ForgotPasswordPage(),
+                                      //   ),
+                                      // ),
+                                      onPressed: () => Get.offAllNamed(
+                                        RoutesName.forgotPassword,
                                       ),
                                       child: UIHelper.boldText(
                                         text: 'Forgot Password?',
@@ -594,18 +597,17 @@ class _LoginScreenState extends State<LoginScreen> {
                                         color: AppColors.text,
                                       ),
                                       TextButton(
-                                        onPressed: () => Navigator.pushReplacement(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (_) => const RegisterScreen(),
-                                          ),
+                                        onPressed: () => Get.offAllNamed(
+                                          RoutesName.register,
                                         ),
+
                                         child: UIHelper.mediumText(
                                           text: 'Register',
                                           fontSize: width * 0.036,
                                           color: AppColors.textblue,
                                           fontWeight: FontWeight.bold,
-                                          textDecoration: TextDecoration.underline,
+                                          textDecoration:
+                                              TextDecoration.underline,
                                         ),
                                       ),
                                     ],
@@ -651,7 +653,10 @@ class _LoginScreenState extends State<LoginScreen> {
           hintText: hint,
           hintStyle: const TextStyle(color: Color(0xff8994a0)),
           border: InputBorder.none,
-          contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: 20,
+            vertical: 18,
+          ),
           suffixIcon: Padding(
             padding: const EdgeInsets.only(right: 4),
             child: GestureDetector(
@@ -664,11 +669,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   shape: BoxShape.circle,
                 ),
                 alignment: Alignment.center,
-                child: UIHelper.customSvg(
-                  svg: svgIcon,
-                  height: 20,
-                  width: 20,
-                ),
+                child: UIHelper.customSvg(svg: svgIcon, height: 20, width: 20),
               ),
             ),
           ),

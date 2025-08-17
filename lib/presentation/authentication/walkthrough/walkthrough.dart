@@ -476,7 +476,7 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
                               //     ),
                               //   ),
                               // ),
-          
+
                               Positioned(
                                 bottom: 20,
                                 left: 0,
@@ -502,8 +502,8 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
                                   ),
                                 ),
                               ),
-          
-          
+
+
                               /// ✅ Skip Button (only if not on last page)
                               //if (_currentPage < 2)
                                 Positioned(
@@ -543,11 +543,11 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
                         ),
                       ),
                     ),
-          
-          
+
+
                   ),
-          
-          
+
+
                   // ✅ PageView
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.9,
@@ -559,16 +559,16 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
                             setState(() {
                               _currentPage = index;
                             });
-          
+
                             // ✅ Only redirect if swiped forward to last page
                             if (_previousPage < index && index == 2) {
                               print("Swiped to last page ($index)");
                               readyToProceed = true; // ✅ enable redirect on next tap
-          
+
                             } else {
                               readyToProceed = false; // reset if user comes back
                             }
-          
+
                             _previousPage = index.toDouble(); // update previous
                           },
                           children: List.generate(3, (index) {
@@ -577,7 +577,7 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
                               onTapUp: (details) {
                                 final screenWidth = MediaQuery.of(context).size.width;
                                 final tapPosition = details.localPosition.dx;
-          
+
                                 if (tapPosition < screenWidth / 2) {
                                   if (_currentPage > 0) {
                                     _pageController.previousPage(
@@ -590,19 +590,19 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
                                     _pageController.nextPage(
                                       duration: const Duration(milliseconds: 300),
                                       curve: Curves.easeInOut,
-          
+
                                     );
-          
+
                                   } else {
                                    // _proceed(context);
-          
+
                                     if (readyToProceed) {
                                       print(" tap on last page");
                                       _proceed(context);
                                     } else {
                                       print("Tap detected, but waiting for swipe to finish.");
                                     }
-          
+
                                   }
                                 }
                               },
@@ -619,7 +619,7 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
                             );
                           }),
                         ),
-          
+
                         // Bottom SVG Overlay Positioned
                         // Positioned(
                         //   top: 100,
@@ -640,9 +640,9 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
                       ],
                     ),
                   ),
-          
-          
-          
+
+
+
                   // ✅ Get Started Button - Safe Padding
                   // Padding(
                   //   padding: EdgeInsets.fromLTRB(
@@ -718,36 +718,23 @@ void _proceed(BuildContext context) async {
   }
 
   if (!profileDone) {
-    Get.off(() => SetupProfileScreen());
+    Get.offNamed(RoutesName.setupProfileImg);
     return;
   }
 
   if (!bankDone) {
-    Get.off(() => BankDetailsPage());
+    Get.offNamed(RoutesName.bankDetails);
     return;
   }
 
   if (!docDone) {
-    Get.off(() => VerifyDocumentsPage());
+    Get.offNamed(RoutesName.verifyDocuments);
     return;
   }
 
   // ✅ All Done
   Get.offNamed(RoutesName.navigation);
 }
-
-
-// void _proceed(BuildContext context) {
-//
-//   Get.offNamed(RoutesName.login);
-//
-//   // final isLoggedIn = StorageService.isLoggedIn();
-//   // if (isLoggedIn) {
-//   //   Get.offNamed(RoutesName.navigation);
-//   // } else {
-//   //   Get.offNamed(RoutesName.login);
-//   // }
-// }
 
 class WalkthroughPage extends StatelessWidget {
   final String imagePath;
@@ -855,3 +842,15 @@ class WalkthroughPage extends StatelessWidget {
     );
   }
 }
+
+// void _proceed(BuildContext context) {
+//
+//   Get.offNamed(RoutesName.login);
+//
+//   // final isLoggedIn = StorageService.isLoggedIn();
+//   // if (isLoggedIn) {
+//   //   Get.offNamed(RoutesName.navigation);
+//   // } else {
+//   //   Get.offNamed(RoutesName.login);
+//   // }
+// }

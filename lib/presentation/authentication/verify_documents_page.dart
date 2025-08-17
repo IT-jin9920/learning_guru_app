@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:learning_guru_app/routes/app_routes.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:path/path.dart' as p;
 
@@ -648,7 +649,9 @@ class VerifyDocumentsPage extends StatelessWidget {
                                   // );
                                   await StorageService.setDocumentsUploaded(true);
                                   Get.back();
-                                  Get.offAll(() => BottomNavigationPage());
+                                  // Get.offAll(() => BottomNavigationPage());
+                                  Get.toNamed(RoutesName.navigation);
+
                                 },
                                 child: Container(
                                   width: double.infinity,

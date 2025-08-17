@@ -4,6 +4,7 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:learning_guru_app/routes/app_routes.dart';
 import 'package:learning_guru_app/widgets/custome_color_bg.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -115,7 +116,9 @@ class SetupProfileScreen extends StatelessWidget {
                 //       builder: (context) => const ProfileSetupPage()),
                 // );
 
-                Get.to(() => ProfileSetupPage());
+                // Get.to(() => ProfileSetupPage());
+                Get.toNamed(RoutesName.profileSetupInfo);
+
               },
             ),
           ),

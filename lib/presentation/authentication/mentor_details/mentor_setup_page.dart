@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:learning_guru_app/routes/app_routes.dart';
 import 'package:learning_guru_app/widgets/base_button.dart';
 import 'package:learning_guru_app/widgets/custome_color_bg.dart';
 
@@ -447,7 +448,9 @@ class _MentoringSetupScreenState extends State<MentoringSetupScreen> {
             text: "Proceed Further",
             onTap: () async {
               await StorageService.setMentoringSetup(true);
-              Get.to(() => BankDetailsPage());
+              // Get.to(() => BankDetailsPage());
+              Get.offAllNamed(RoutesName.bankDetails);
+
             },
           ),
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:learning_guru_app/routes/app_routes.dart';
 import '../../../res/colors/app_color.dart';
 import '../../../res/constants/constants.dart';
 import '../../../utils/ui_helper.dart';
@@ -36,10 +37,13 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
             padding: const EdgeInsets.only(left: 16),
             child: GestureDetector(
               onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const LoginScreen()),
-                );
+                // Navigator.pushReplacement(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => const LoginScreen()),
+                // );
+
+                Get.offAllNamed(RoutesName.login);
+
               },
               child: Container(
                 height: 40,
@@ -207,7 +211,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
               //   MaterialPageRoute(builder: (context) => const LoginScreen()),
               // );
 
-              Get.to(LoginScreen());
+              Get.offAllNamed(RoutesName.login);
             },
           ),
         ),

@@ -136,6 +136,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:learning_guru_app/routes/app_routes.dart';
 import '../../../core/services/storage_service.dart';
 import '../../../utils/ui_helper.dart';
 import '../../../utils/validation.dart';
@@ -340,13 +341,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       ),
                                       TextButton(
                                         onPressed: () {
-                                          Navigator.pushReplacement(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                              const LoginScreen(),
-                                            ),
-                                          );
+                                          // Navigator.pushReplacement(
+                                          //   context,
+                                          //   MaterialPageRoute(
+                                          //     builder: (context) =>
+                                          //     const LoginScreen(),
+                                          //   ),
+                                          // );
+                                          Get.offAllNamed(RoutesName.login);
+
                                         },
                                         child: UIHelper.mediumText(
                                           text: 'Sign In',
