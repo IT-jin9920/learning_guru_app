@@ -89,7 +89,7 @@ class EditProfileImage extends StatelessWidget {
 
                       SizedBox(
                         height: MediaQuery.of(context).padding.bottom +
-                            AppConstants.spacingLarge,
+                            AppConstantsSpacing.spacingLarge,
                       ),
                     ],
                   ),
@@ -99,7 +99,7 @@ class EditProfileImage extends StatelessWidget {
           },
         ),
         bottomNavigationBar: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppConstants.paddingLarge, vertical: 18),
+          padding: const EdgeInsets.symmetric(horizontal: AppConstantsSpacing.paddingLarge, vertical: 18),
           child: GradientButton(
             text: "Save Changes",
             onTap: () {

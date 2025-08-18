@@ -784,12 +784,12 @@ class _StudentVideoDetailPageState extends State<StudentVideoDetailPage> {
           padding: MediaQuery.of(context).viewInsets,
           child: Container(
             padding: const EdgeInsets.symmetric(
-              horizontal: AppConstants.paddingLarge,
+              horizontal: AppConstantsSpacing.paddingLarge,
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const SizedBox(height: AppConstants.spacingExtraLarge * 2),
+                const SizedBox(height: AppConstantsSpacing.spacingExtraLarge * 2),
                 Container(
                   decoration: const BoxDecoration(
                     color: AppColors.white,
@@ -895,7 +895,7 @@ class _StudentVideoDetailPageState extends State<StudentVideoDetailPage> {
                           SizedBox(
                             height:
                                 MediaQuery.of(context).padding.bottom +
-                                AppConstants.spacingLarge,
+                                AppConstantsSpacing.spacingLarge,
                           ),
                         ],
                       ),

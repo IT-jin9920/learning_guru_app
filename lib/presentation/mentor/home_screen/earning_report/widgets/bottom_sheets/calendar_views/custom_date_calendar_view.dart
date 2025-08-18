@@ -85,7 +85,7 @@ class _CustomDateCalendarViewState extends State<CustomDateCalendarView> {
                   Expanded(
                     child: Container(
                       height: 36,
-                      padding: const EdgeInsets.symmetric(horizontal: AppConstants.paddingMedium),
+                      padding: const EdgeInsets.symmetric(horizontal: AppConstantsSpacing.paddingMedium),
                       decoration: BoxDecoration(
                         color: const Color(0xffCEDBF1),
                         borderRadius: BorderRadius.circular(21),
@@ -102,7 +102,7 @@ class _CustomDateCalendarViewState extends State<CustomDateCalendarView> {
                       ),
                     ),
                   ),
-                  const SizedBox(width: AppConstants.spacingSmall),
+                  const SizedBox(width: AppConstantsSpacing.spacingSmall),
                   Container(
                     height: 36,
                     padding: const EdgeInsets.symmetric(horizontal: 3),

@@ -85,7 +85,7 @@ class _EditMentorshipDetailsPageState extends State<EditMentorshipDetailsPage> {
         body: LayoutBuilder(
           builder: (context, constraints) {
             return SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: AppConstants.paddingLarge),
+              padding: const EdgeInsets.symmetric(horizontal: AppConstantsSpacing.paddingLarge),
               child: ConstrainedBox(
                 constraints: BoxConstraints(minHeight: constraints.maxHeight),
                 child: Form(
@@ -150,7 +150,7 @@ class _EditMentorshipDetailsPageState extends State<EditMentorshipDetailsPage> {
       
                         const Spacer(), // Push button to bottom when possible
       
-                        const SizedBox(height: AppConstants.spacingLarge),
+                        const SizedBox(height: AppConstantsSpacing.spacingLarge),
                         // GradientButton(
                         //   text: "Proceed Further",
                         //   onTap: () {
@@ -192,7 +192,7 @@ class _EditMentorshipDetailsPageState extends State<EditMentorshipDetailsPage> {
                         //     }
                         //   },
                         // ),
-                        SizedBox(height: MediaQuery.of(context).padding.bottom + AppConstants.spacingLarge),
+                        SizedBox(height: MediaQuery.of(context).padding.bottom + AppConstantsSpacing.spacingLarge),
                       ],
                     ),
                   ),
@@ -202,7 +202,7 @@ class _EditMentorshipDetailsPageState extends State<EditMentorshipDetailsPage> {
           },
         ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppConstants.paddingLarge, vertical: 18),
+        padding: const EdgeInsets.symmetric(horizontal: AppConstantsSpacing.paddingLarge, vertical: 18),
       child:   GradientButton(
         text: "Proceed Further",
         onTap: () {
@@ -289,8 +289,8 @@ class _EditMentorshipDetailsPageState extends State<EditMentorshipDetailsPage> {
           borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(
-          horizontal: AppConstants.paddingMedium,
-          vertical: AppConstants.paddingMedium,
+          horizontal: AppConstantsSpacing.paddingMedium,
+          vertical: AppConstantsSpacing.paddingMedium,
         ),
         // suffixIcon: Container(
         //   margin: const EdgeInsets.only(right: AppConstants.paddingMedium),

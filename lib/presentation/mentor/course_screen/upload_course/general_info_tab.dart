@@ -151,11 +151,11 @@ class _GeneralInfoTabState extends State<GeneralInfoTab> {
           borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(
-          horizontal: AppConstants.paddingMedium,
-          vertical: AppConstants.paddingMedium,
+          horizontal: AppConstantsSpacing.paddingMedium,
+          vertical: AppConstantsSpacing.paddingMedium,
         ),
         suffixIcon: Container(
-          margin: const EdgeInsets.only(right: AppConstants.paddingMedium),
+          margin: const EdgeInsets.only(right: AppConstantsSpacing.paddingMedium),
           decoration: const BoxDecoration(
             color: AppColors.white,
             shape: BoxShape.circle,

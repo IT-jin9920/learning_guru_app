@@ -269,7 +269,7 @@ class _ProfileDetailsMantorsState extends State<ProfileDetailsMantors> {
                         color: AppColors.textblue,
                       ),
 
-                      SizedBox(height: AppConstants.spacingSmall / 2),
+                      SizedBox(height: AppConstantsSpacing.spacingSmall / 2),
 
                       UIHelper.boldText(
                         text: '130+ Students',
@@ -292,7 +292,7 @@ class _ProfileDetailsMantorsState extends State<ProfileDetailsMantors> {
                         color: AppColors.textblue,
                       ),
 
-                      SizedBox(height: AppConstants.spacingSmall / 2),
+                      SizedBox(height: AppConstantsSpacing.spacingSmall / 2),
 
                       UIHelper.boldText(
                         text: '100+ Feedbacks',

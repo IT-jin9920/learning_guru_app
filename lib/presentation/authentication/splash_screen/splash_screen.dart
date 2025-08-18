@@ -80,7 +80,6 @@
 //   }
 // }
 
-
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -106,7 +105,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
- // String _roleText = "MENTORS"; // Default fallback
+  // String _roleText = "MENTORS"; // Default fallback
   String? _roleText; // Default now is null
 
   // @override
@@ -140,12 +139,32 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-
-    Future.delayed(const Duration(seconds:5), () {
+    _initializeRoleText();
+    Future.delayed(const Duration(seconds: 5), () {
       checkSession(); // let this handle the actual flow
     });
   }
 
+  // Initialize the role text based on the stored role
+  Future<void> _initializeRoleText() async {
+    final role = await StorageService.getUserRole(); // Fetch role from storage
+    setState(() {
+      if (role != null && role.isNotEmpty) {
+        // Map role to user-friendly display text
+        if (role == "mentor") {
+          _roleText = "MENTORs"; // For mentors
+        } else if (role == "tutor") {
+          _roleText = "TUTORs"; // For tutors
+          // } else if (role == "student") {
+          //   _roleText = "STUDENTs";  // For students
+        } else {
+          _roleText = ""; // Fallback for any undefined role
+        }
+      } else {
+        _roleText = ""; // Default if role is null or empty
+      }
+    });
+  }
 
   Future<void> checkSession() async {
     final role = await StorageService.getUserRole();
@@ -172,85 +191,58 @@ class _SplashScreenState extends State<SplashScreen> {
     // ✅ CASE 1: First-time user (nothing completed)
     if (role == null && !isRegistered && !isLoggedIn && !setLoginRegisterStatus) {
       print("➡️ First-time user → Walkthrough");
-      print("Flow: Splash → Walkthrough → UserSelect → Register → OTP → Setup → Bank → Docs → Home");
-      Get.offNamed(RoutesName.walk);
+      // Flow: Splash → Walkthrough → UserSelect → Register → OTP → Setup → Bank → Docs → Home
+      Get.off(() => WalkthroughScreen());
       return;
     }
 
     // ✅ CASE 2: Registered but not completed flow (e.g. app restart mid-onboarding)
     if (role != null && !isRegistered) {
       print("➡️ Role exists but not registered → Register");
-      print("Flow: Splash → Register → OTP → Setup → Bank → Docs → Home");
-      Get.offNamed(RoutesName.register);
+      // Flow: Splash → Register → OTP → Setup → Bank → Docs → Home
+      Get.off(() => const RegisterScreen());
       return;
     }
 
-    // ✅ CASE 3: Registered + Logged In + LoginRegisterStatus FALSE → Start onboarding
-    if (isLoggedIn && isRegistered && !setLoginRegisterStatus) {
-      if (!profileDone) {
-        print("➡️ Profile not completed → SetupProfileScreen");
-        Get.offNamed(RoutesName.setupProfileImg);
+    // ✅ CASE 3: Registered + Logged In + LoginRegisterStatus TRUE → Check Home
+    if (isLoggedIn && isRegistered && setLoginRegisterStatus) {
+      // If all setup steps are complete, go to home
+      if (profileDone && mentoringDone && bankDone && docDone) {
+        print("✅ All setup complete → Home");
+        Get.offAllNamed(RoutesName.navigation);
         return;
-      }
+      } else {
+        print("➡️ Setup not complete → Redirect to first incomplete step");
 
-      if (!mentoringDone) {
-        print("➡️ Mentoring not setup → MentoringSetupScreen");
-        Get.off(() => MentoringSetupScreen());
-        return;
-      }
-
-      if (!bankDone) {
-        print("➡️ Bank details not updated → BankDetailsPage");
-        Get.offNamed(RoutesName.bankDetails);
-        return;
-      }
-
-      if (!docDone) {
-        print("➡️ Documents not uploaded → VerifyDocumentsPage");
-        Get.offNamed(RoutesName.verifyDocuments);
+        // Redirect to first incomplete step
+        if (!profileDone) {
+          Get.off(() => const SetupProfileScreen());
+        } else if (!mentoringDone) {
+          Get.off(() => MentoringSetupScreen());
+        } else if (!bankDone) {
+          Get.off(() => BankDetailsPage());
+        } else if (!docDone) {
+          Get.off(() => VerifyDocumentsPage());
+        }
         return;
       }
     }
 
-
-
-
-    // ✅ CASE 4: All setup completed
-    if (role != null &&
-        isRegistered &&
-        isLoggedIn &&
-        profileDone &&
-        mentoringDone &&
-        bankDone &&
-        docDone) {
-      print("✅ All setup complete → Home");
-      Get.offAllNamed(RoutesName.navigation);
-      return;
-    }
-
-    // ✅ CASE 5: Registered but not logged in → Login setLoginRegisterStatus && !isLoggedIn
-     if ( role == null || !isRegistered || !isLoggedIn || setLoginRegisterStatus) {
+    // ✅ CASE 4: Registered but not logged in → Login
+    if (role == null || !isRegistered || !isLoggedIn || setLoginRegisterStatus) {
       print("➡️ Registered but not logged in → Login");
-      Get.offNamed(RoutesName.login);
+      Get.off(() => const LoginScreen());
       return;
     }
 
-// ✅ CASE 4: All setup completed
-    if (role != null &&
-        !isRegistered &&
-        isLoggedIn &&
-        !profileDone &&
-        !mentoringDone &&
-        !bankDone &&
-        !docDone && setLoginRegisterStatus
-    ) {
-      print("✅ All setup complete → Home");
-      Get.offAllNamed(RoutesName.navigation);
+    // ✅ CASE 5: Logged In but not Registered → Register
+    if (isLoggedIn && !isRegistered) {
+      print("➡️ Logged in but not registered → Register");
+      Get.off(() => const RegisterScreen());
       return;
     }
 
-
-    // ❗Fallback: Something's wrong → Ask user to login again
+    // ❗ Fallback: Something's wrong → Ask user to login again
     print("⚠️ Fallback → Showing error dialog & redirecting to login");
 
     Get.defaultDialog(
@@ -258,7 +250,7 @@ class _SplashScreenState extends State<SplashScreen> {
       middleText: "Something went wrong. Please login again.",
       confirm: ElevatedButton(
         onPressed: () {
-          Get.offNamed(RoutesName.login);
+          Get.off(() => const LoginScreen());
         },
         child: const Text("OK"),
       ),
@@ -429,9 +421,6 @@ class _SplashScreenState extends State<SplashScreen> {
   //
   // }
 
-
-
-
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -441,29 +430,27 @@ class _SplashScreenState extends State<SplashScreen> {
         body: Stack(
           children: [
             /// Bottom role-based text (STUDENTS / MENTORS / TUTORS)
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 60,),
-                child: UIHelper.gradientText(
-                  // text: _roleText,
-                  text: _roleText ?? "",
-                  fontSize: 65,
-                  gradientColors: const [
-                    Color(0xfffafbfe),
-                    Color(0xffe7edf8),
-                  ],
-                ),
-              ),
-            ),
+            // Align(
+            //   alignment: Alignment.bottomCenter,
+            //   child: Padding(
+            //     padding: const EdgeInsets.only(bottom: 60,),
+            //     child: UIHelper.gradientText(
+            //       // text: _roleText,
+            //       text: _roleText ?? "",
+            //       fontSize: 65,
+            //       gradientColors: const [
+            //         Color(0xfffafbfe),
+            //         Color(0xffe7edf8),
+            //       ],
+            //     ),
+            //   ),
+            // ),
 
             /// Center SVG icon
             Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  UIHelper.customSvg(svg: "splash-svg.svg"),
-                ],
+                children: [UIHelper.customSvg(svg: "splash-svg.svg")],
               ),
             ),
 
@@ -473,6 +460,20 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 30),
                 child: UIHelper.customSvg(svg: "learning-svg.svg"),
+              ),
+            ),
+
+            // Faded background text "MENTORS"
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 60, left: 5, right: 5),
+                child: UIHelper.gradientText(
+                  // text: 'MENTORs',
+                  text: _roleText ?? "",
+                  fontSize: 60,
+                  gradientColors: [Color(0xfffafbfe), Color(0xffe7edf8)],
+                ),
               ),
             ),
           ],

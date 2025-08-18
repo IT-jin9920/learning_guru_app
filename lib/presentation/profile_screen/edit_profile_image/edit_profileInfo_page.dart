@@ -82,7 +82,7 @@ class _EditProfileinfoPageState extends State<EditProfileinfoPage> {
           builder: (context, constraints) {
             return SingleChildScrollView(
               padding: const EdgeInsets.symmetric(
-                horizontal: AppConstants.paddingLarge,
+                horizontal: AppConstantsSpacing.paddingLarge,
               ),
               child: ConstrainedBox(
                 constraints: BoxConstraints(minHeight: constraints.maxHeight),
@@ -92,27 +92,27 @@ class _EditProfileinfoPageState extends State<EditProfileinfoPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const SizedBox(height: AppConstants.spacingLarge),
+                        const SizedBox(height: AppConstantsSpacing.spacingLarge),
                         _buildInputField(
                           'Full Name',
                           "user-svg-icon.svg",
                           nameController,
                         ),
-                        const SizedBox(height: AppConstants.spacingMedium),
+                        const SizedBox(height: AppConstantsSpacing.spacingMedium),
                         _buildInputField(
                           'Phone Number',
                           "number-svg-icon.svg",
                           phoneController,
                           keyboardType: TextInputType.phone,
                         ),
-                        const SizedBox(height: AppConstants.spacingMedium),
+                        const SizedBox(height: AppConstantsSpacing.spacingMedium),
                         _buildInputField(
                           'Email ID',
                           "email-icon-svg.svg",
                           emailController,
                           keyboardType: TextInputType.emailAddress,
                         ),
-                        const SizedBox(height: AppConstants.spacingMedium),
+                        const SizedBox(height: AppConstantsSpacing.spacingMedium),
 
 
                       if (userRole == 'student')...[
@@ -122,7 +122,7 @@ class _EditProfileinfoPageState extends State<EditProfileinfoPage> {
                           emailController,
                           keyboardType: TextInputType.emailAddress,
                         ),
-                        const SizedBox(height: AppConstants.spacingMedium),
+                        const SizedBox(height: AppConstantsSpacing.spacingMedium),
 
                         _buildInputField(
                           'Standard Class',
@@ -130,7 +130,7 @@ class _EditProfileinfoPageState extends State<EditProfileinfoPage> {
                           emailController,
                           keyboardType: TextInputType.emailAddress,
                         ),
-                        const SizedBox(height: AppConstants.spacingMedium),
+                        const SizedBox(height: AppConstantsSpacing.spacingMedium),
       ],
 
                         // const Spacer(), // ❌ REMOVE THIS
@@ -169,7 +169,7 @@ class _EditProfileinfoPageState extends State<EditProfileinfoPage> {
           },
         ),
         bottomNavigationBar: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppConstants.paddingLarge, vertical: 18),
+          padding: const EdgeInsets.symmetric(horizontal: AppConstantsSpacing.paddingLarge, vertical: 18),
           child:    GradientButton(
             text: "Save Changes",
             onTap: () {
@@ -231,7 +231,7 @@ class _EditProfileinfoPageState extends State<EditProfileinfoPage> {
           borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(
-          horizontal: AppConstants.paddingMedium,
+          horizontal: AppConstantsSpacing.paddingMedium,
           vertical: 18,
         ),
         suffixIcon: Padding(
@@ -280,7 +280,7 @@ class _EditProfileinfoPageState extends State<EditProfileinfoPage> {
           borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(
-          horizontal: AppConstants.paddingMedium,
+          horizontal: AppConstantsSpacing.paddingMedium,
           vertical: 18,
         ),
         suffixIcon: Padding(

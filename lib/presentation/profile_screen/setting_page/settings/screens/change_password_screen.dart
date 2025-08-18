@@ -61,7 +61,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
           toolbarHeight: 80,
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppConstants.paddingLarge),
+          padding: const EdgeInsets.symmetric(horizontal: AppConstantsSpacing.paddingLarge),
           child: Form(
             key: _formKey,
             child: Column(
@@ -173,7 +173,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   },
       
                 ),
-                const SizedBox(height: AppConstants.spacingExtraLarge),
+                const SizedBox(height: AppConstantsSpacing.spacingExtraLarge),
               ],
             ),
           ),

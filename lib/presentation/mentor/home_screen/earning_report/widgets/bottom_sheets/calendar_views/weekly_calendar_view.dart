@@ -259,7 +259,7 @@ class _WeeklyCalendarViewState extends State<WeeklyCalendarView> {
                     child: Container(
                       height: 36,
                       padding: EdgeInsets.symmetric(
-                        horizontal: AppConstants.paddingMedium,
+                        horizontal: AppConstantsSpacing.paddingMedium,
                       ),
                       decoration: BoxDecoration(
                         color: const Color(0xffCEDBF1),
@@ -277,7 +277,7 @@ class _WeeklyCalendarViewState extends State<WeeklyCalendarView> {
                     ),
                   ),
 
-                  const SizedBox(width: AppConstants.spacingSmall),
+                  const SizedBox(width: AppConstantsSpacing.spacingSmall),
 
                   /// ⬅️➡️ Arrows Container
                   Container(

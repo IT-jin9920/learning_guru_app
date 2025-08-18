@@ -323,11 +323,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     text: "Register",
                                     onTap: () async {
                                       await StorageService.setRegisterStatus(true);
-                                      Get.to(
-                                            () => const OTPVerificationPage(
-                                          source: "register",
-                                        ),
-                                      );
+                                      // Get.to(
+                                      //       () => const OTPVerificationPage(
+                                      //     source: "register",
+                                      //   ),
+                                      // );
+                                     // Get.to(() => OTPVerificationPage(source: "register"));
+                                      Get.toNamed(RoutesName.otpVerification, arguments: 'register');
                                     },
                                   ),
                                   SizedBox(height: height * 0.02),

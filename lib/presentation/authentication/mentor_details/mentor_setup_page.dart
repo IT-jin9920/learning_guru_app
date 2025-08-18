@@ -341,7 +341,7 @@ class _MentoringSetupScreenState extends State<MentoringSetupScreen> {
         // ),
         body: Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: AppConstants.paddingLarge,
+            horizontal: AppConstantsSpacing.paddingLarge,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -441,7 +441,7 @@ class _MentoringSetupScreenState extends State<MentoringSetupScreen> {
         ),
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: AppConstants.paddingLarge,
+            horizontal: AppConstantsSpacing.paddingLarge,
             vertical: 18,
           ),
           child: GradientButton(

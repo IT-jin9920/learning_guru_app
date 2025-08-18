@@ -61,7 +61,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: AppConstants.paddingLarge,
+            horizontal: AppConstantsSpacing.paddingLarge,
           ),
           child: Form(
             key: _formKey,
@@ -73,7 +73,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                   fontSize: 32,
                   color: AppColors.textblue,
                 ),
-                const SizedBox(height: AppConstants.spacingSmall),
+                const SizedBox(height: AppConstantsSpacing.spacingSmall),
                 UIHelper.mediumText(
                   text:
                       "Almost there, enter the new password you wish to set for your account",
@@ -159,14 +159,14 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                 //   },
                 //
                 // ),
-                const SizedBox(height: AppConstants.spacingExtraLarge),
+                const SizedBox(height: AppConstantsSpacing.spacingExtraLarge),
               ],
             ),
           ),
         ),
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: AppConstants.paddingLarge,
+            horizontal: AppConstantsSpacing.paddingLarge,
             vertical: 18,
           ),
           child: GradientButton(

@@ -264,7 +264,7 @@ class _ProfileDetailsTutorsState extends State<ProfileDetailsTutors> {
                         color: AppColors.textblue,
                       ),
 
-                      SizedBox(height: AppConstants.spacingSmall / 2),
+                      SizedBox(height: AppConstantsSpacing.spacingSmall / 2),
 
                       UIHelper.boldText(
                         text: '130+ Students',
@@ -287,7 +287,7 @@ class _ProfileDetailsTutorsState extends State<ProfileDetailsTutors> {
                         color: AppColors.textblue,
                       ),
 
-                      SizedBox(height: AppConstants.spacingSmall / 2),
+                      SizedBox(height: AppConstantsSpacing.spacingSmall / 2),
 
                       UIHelper.boldText(
                         text: '100+ Feedbacks',

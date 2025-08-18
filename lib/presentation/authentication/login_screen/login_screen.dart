@@ -464,7 +464,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _loginUser() async {
     await StorageService.setLoginStatus(true);
-    Get.to(() => const OTPVerificationPage(source: "login"));
+    // Get.to(() => const OTPVerificationPage(source: "login"));
+    Get.toNamed(RoutesName.otpVerification, arguments: 'login');
   }
 
   @override

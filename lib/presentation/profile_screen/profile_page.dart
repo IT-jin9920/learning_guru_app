@@ -838,7 +838,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
           /// Document List
           Padding(
-            padding: const EdgeInsets.only(top: AppConstants.paddingSmall),
+            padding: const EdgeInsets.only(top: AppConstantsSpacing.paddingSmall),
             child: files.isEmpty
                 ? const Center(
               child: Text(
@@ -858,8 +858,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 return Container(
                   margin: const EdgeInsets.symmetric(vertical: 2),
                   padding: const EdgeInsets.symmetric(
-                    horizontal: AppConstants.paddingMedium,
-                    vertical: AppConstants.paddingSmall,
+                    horizontal: AppConstantsSpacing.paddingMedium,
+                    vertical: AppConstantsSpacing.paddingSmall,
                   ),
                   decoration: BoxDecoration(
                     color: const Color(0xffccdaf2),
@@ -868,7 +868,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: Row(
                     children: [
                      UIHelper.customSvg(svg: "documnts-icon.svg",),
-                      const SizedBox(width: AppConstants.spacingSmall),
+                      const SizedBox(width: AppConstantsSpacing.spacingSmall),
                       Expanded(
                         child: UIHelper.mediumText(text: fileName, fontSize: 12, color: AppColors.text),
 

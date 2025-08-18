@@ -254,14 +254,14 @@ class _EditCertificationsState extends State<EditCertifications> {
       body: LayoutBuilder(
         builder: (context, constraints) {
           return SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: AppConstants.paddingLarge),
+            padding: const EdgeInsets.symmetric(horizontal: AppConstantsSpacing.paddingLarge),
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: constraints.maxHeight),
               child: IntrinsicHeight(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    const SizedBox(height: AppConstants.spacingExtraLarge),
+                    const SizedBox(height: AppConstantsSpacing.spacingExtraLarge),
 
                     // _buildDocumentSection('Qualification', Icons.description_outlined, true, docCtrl.qualificationFiles),
                     // const SizedBox(height: AppConstants.spacingMedium),
@@ -276,7 +276,7 @@ class _EditCertificationsState extends State<EditCertifications> {
                       true,
                       docCtrl.qualificationFiles,
                     ),
-                    const SizedBox(height: AppConstants.spacingMedium),
+                    const SizedBox(height: AppConstantsSpacing.spacingMedium),
                     _buildDocumentSection(
                       'Certificates',
                       docCtrl.qualificationFiles.isEmpty
@@ -295,7 +295,7 @@ class _EditCertificationsState extends State<EditCertifications> {
                         _showDetailsSubmittedBottomSheet(context);
                       },
                     ),
-                    SizedBox(height: MediaQuery.of(context).padding.bottom + AppConstants.spacingLarge),
+                    SizedBox(height: MediaQuery.of(context).padding.bottom + AppConstantsSpacing.spacingLarge),
                   ],
                 ),
               ),
@@ -310,7 +310,7 @@ class _EditCertificationsState extends State<EditCertifications> {
 
   Widget _buildDocumentSection(String category, String icon, bool isQualification, RxList<String> files) {
     return Obx(() => Container(
-      padding: const EdgeInsets.symmetric(horizontal: AppConstants.paddingMedium, vertical: AppConstants.paddingSmall),
+      padding: const EdgeInsets.symmetric(horizontal: AppConstantsSpacing.paddingMedium, vertical: AppConstantsSpacing.paddingSmall),
       decoration: BoxDecoration(
         color: AppColors.roundbg,
         borderRadius: BorderRadius.circular(28),
@@ -338,7 +338,7 @@ class _EditCertificationsState extends State<EditCertifications> {
                   color: AppColors.white,
                 ),
               ),
-              const SizedBox(width: AppConstants.spacingMedium),
+              const SizedBox(width: AppConstantsSpacing.spacingMedium),
               Expanded(
                 child: Text(category,
                     style: const TextStyle(
@@ -348,7 +348,7 @@ class _EditCertificationsState extends State<EditCertifications> {
                 onTap: () => docCtrl.pickFile(isQualification: isQualification),
                 borderRadius: BorderRadius.circular(28),
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: AppConstants.paddingMedium, vertical: AppConstants.paddingSmall),
+                  padding: const EdgeInsets.symmetric(horizontal: AppConstantsSpacing.paddingMedium, vertical: AppConstantsSpacing.paddingSmall),
                   decoration: BoxDecoration(
                     color: AppColors.white,
                     borderRadius: BorderRadius.circular(28),
@@ -363,7 +363,7 @@ class _EditCertificationsState extends State<EditCertifications> {
                   child: const Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(Icons.add_circle_outline, size: AppConstants.iconSizeSmall, color: AppColors.primary1),
+                      Icon(Icons.add_circle_outline, size: AppConstantsSpacing.iconSizeSmall, color: AppColors.primary1),
                       SizedBox(width: 6),
                       Text('Upload',
                           style: TextStyle(
@@ -376,7 +376,7 @@ class _EditCertificationsState extends State<EditCertifications> {
           ),
           if (files.isNotEmpty)
             Padding(
-              padding: const EdgeInsets.only(top: AppConstants.paddingSmall),
+              padding: const EdgeInsets.only(top: AppConstantsSpacing.paddingSmall),
               child: Column(
                 children: files.asMap().entries.map((entry) {
                   final index = entry.key;
@@ -394,8 +394,8 @@ class _EditCertificationsState extends State<EditCertifications> {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 2),
       padding: const EdgeInsets.symmetric(
-        horizontal: AppConstants.paddingMedium,
-        vertical: AppConstants.paddingSmall,
+        horizontal: AppConstantsSpacing.paddingMedium,
+        vertical: AppConstantsSpacing.paddingSmall,
       ),
       decoration: BoxDecoration(
         color: const Color(0xffccdaf2),
@@ -405,7 +405,7 @@ class _EditCertificationsState extends State<EditCertifications> {
         children: [
           // const Icon(Icons.description_outlined, color: AppColors.grey, size: AppConstants.iconSizeSmall),
           UIHelper.customSvg(svg: "documnts-icon.svg", height: 16, width: 16),
-          const SizedBox(width: AppConstants.spacingSmall),
+          const SizedBox(width: AppConstantsSpacing.spacingSmall),
           Expanded(
             child: Text(
               fileName,
@@ -456,14 +456,14 @@ class _EditCertificationsState extends State<EditCertifications> {
           borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(
-          horizontal: AppConstants.paddingMedium,
-          vertical: AppConstants.paddingMedium,
+          horizontal: AppConstantsSpacing.paddingMedium,
+          vertical: AppConstantsSpacing.paddingMedium,
         ),
         suffixIcon: Container(
-          margin: const EdgeInsets.only(right: AppConstants.paddingMedium),
+          margin: const EdgeInsets.only(right: AppConstantsSpacing.paddingMedium),
           decoration: const BoxDecoration(color: Colors.white, shape: BoxShape.circle),
           padding: const EdgeInsets.all(8),
-          child: Icon(icon, color: AppColors.grey, size: AppConstants.iconSizeMedium),
+          child: Icon(icon, color: AppColors.grey, size: AppConstantsSpacing.iconSizeMedium),
         ),
       ),
     );
@@ -478,11 +478,11 @@ class _EditCertificationsState extends State<EditCertifications> {
         return Padding(
           padding: MediaQuery.of(context).viewInsets,
           child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: AppConstants.paddingLarge),
+            padding: const EdgeInsets.symmetric(horizontal: AppConstantsSpacing.paddingLarge),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const SizedBox(height: AppConstants.spacingExtraLarge * 2),
+                const SizedBox(height: AppConstantsSpacing.spacingExtraLarge * 2),
                 Container(
                   decoration: const BoxDecoration(
                     color: AppColors.white,
@@ -525,7 +525,7 @@ class _EditCertificationsState extends State<EditCertifications> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(AppConstants.paddingLarge),
+                        padding: const EdgeInsets.all(AppConstantsSpacing.paddingLarge),
                         child: Column(
                           children: [
                             const Text(
@@ -538,7 +538,7 @@ class _EditCertificationsState extends State<EditCertifications> {
                               ),
                               textAlign: TextAlign.center,
                             ),
-                            const SizedBox(height: AppConstants.spacingSmall),
+                            const SizedBox(height: AppConstantsSpacing.spacingSmall),
                             const Text(
                               'Your details are submitted to the Admin for verification, once your details are been verified, we will update you.',
                               style: TextStyle(
@@ -548,7 +548,7 @@ class _EditCertificationsState extends State<EditCertifications> {
                               ),
                               textAlign: TextAlign.center,
                             ),
-                            const SizedBox(height: AppConstants.spacingExtraLarge),
+                            const SizedBox(height: AppConstantsSpacing.spacingExtraLarge),
                             GestureDetector(
                               onTap: () {
                                 Get.back();

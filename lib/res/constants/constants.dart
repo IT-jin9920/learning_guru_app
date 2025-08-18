@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 
-class AppConstants {
-  AppConstants._();
+class AppConstantsSpacing {
+  AppConstantsSpacing._();
 
   static const double paddingSmall = 8.0;
   static const double paddingMedium = 16.0;

@@ -108,12 +108,12 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
             toolbarHeight: 80,
           ),
           body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: AppConstants.paddingLarge),
+            padding: const EdgeInsets.symmetric(horizontal: AppConstantsSpacing.paddingLarge),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 UIHelper.boldText(text:  'Verification', fontSize: 32, color: AppColors.textblue),
-                const SizedBox(height: AppConstants.spacingSmall),
+                const SizedBox(height: AppConstantsSpacing.spacingSmall),
                 userRole == 'student'?  UIHelper.mediumText(text:    'Enter the 6 Digit OTP received on your\nregistered Email or Phone.', fontSize: 14, color: AppColors.grey)
                 :  UIHelper.mediumText(text:    'Enter the 6 Digit OTP received on your\nregistered Email.', fontSize: 14, color: AppColors.grey),
                 const SizedBox(height: 56),
@@ -133,7 +133,7 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: AppConstants.spacingExtraLarge),
+                const SizedBox(height: AppConstantsSpacing.spacingExtraLarge),
               ],
             ),
           ),
@@ -221,9 +221,10 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
 
                       if (widget.source == "login") {
                         await StorageService.setLoginStatus(true);
-                        await StorageService.setRegisterStatus(false);
+                        await StorageService.setRegisterStatus(true);
                         print("Login flow complete");
                         Get.offAllNamed(RoutesName.navigation);
+
                       } else {
                         await StorageService.setRegisterStatus(true);
                         print("Register flow complete");

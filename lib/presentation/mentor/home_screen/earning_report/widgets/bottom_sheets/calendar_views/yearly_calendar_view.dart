@@ -50,7 +50,7 @@ class _YearlyCalendarViewState extends State<YearlyCalendarView> {
                       height: 36,
                       alignment: Alignment.center,
                       padding: const EdgeInsets.symmetric(
-                        horizontal: AppConstants.paddingMedium,
+                        horizontal: AppConstantsSpacing.paddingMedium,
                       ),
                       decoration: BoxDecoration(
                         color: const Color(0xffCEDBF1),
@@ -69,7 +69,7 @@ class _YearlyCalendarViewState extends State<YearlyCalendarView> {
                     ),
                   ),
 
-                  const SizedBox(width: AppConstants.spacingSmall),
+                  const SizedBox(width: AppConstantsSpacing.spacingSmall),
 
                   /// ⬅️➡️ Arrows Container
                   Container(

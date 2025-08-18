@@ -73,7 +73,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
            // onTap: () => FocusScope.of(context).unfocus(),
             child: Padding(
               padding: const EdgeInsets.symmetric(
-                horizontal: AppConstants.paddingLarge,
+                horizontal: AppConstantsSpacing.paddingLarge,
               ),
               child: Form(
                 key: _formKey,
@@ -86,7 +86,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         fontSize: 32,
                         color: AppColors.textblue,
                       ),
-                      const SizedBox(height: AppConstants.spacingSmall),
+                      const SizedBox(height: AppConstantsSpacing.spacingSmall),
                       UIHelper.mediumText(
                         text:
                             "Don't worry,just enter your number and we’ll send you a password recovery link.",
@@ -167,7 +167,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
 
                         },
                       ),
-                      const SizedBox(height: AppConstants.spacingMedium),
+                      const SizedBox(height: AppConstantsSpacing.spacingMedium),
                     ],
                   ),
                 ),

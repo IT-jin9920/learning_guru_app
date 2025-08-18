@@ -104,7 +104,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
           builder: (context, constraints) {
             return SingleChildScrollView(
               padding: const EdgeInsets.symmetric(
-                horizontal: AppConstants.paddingLarge,
+                horizontal: AppConstantsSpacing.paddingLarge,
               ),
               child: ConstrainedBox(
                 constraints: BoxConstraints(minHeight: constraints.maxHeight),
@@ -114,7 +114,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const SizedBox(height: AppConstants.spacingLarge),
+                        const SizedBox(height: AppConstantsSpacing.spacingLarge),
       
                         /// Email Field
                         _buildTextField(
@@ -123,7 +123,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                           svg: 'email-icon-svg.svg',
                           inputType: TextInputType.emailAddress,
                         ),
-                        const SizedBox(height: AppConstants.spacingMedium),
+                        const SizedBox(height: AppConstantsSpacing.spacingMedium),
       
                         /// Subject Field
                         _buildTextField(
@@ -131,7 +131,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                           hintText: 'Your Subject',
                           svg: "about-svg-icon.svg",
                         ),
-                        const SizedBox(height: AppConstants.spacingMedium),
+                        const SizedBox(height: AppConstantsSpacing.spacingMedium),
       
                         /// Message Field
                         _buildMultiLineInputField(
@@ -141,7 +141,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                         ),
 
                         const SizedBox(
-                          height: AppConstants.spacingExtraLarge * 2,
+                          height: AppConstantsSpacing.spacingExtraLarge * 2,
                         ),
       
                         const Spacer(),
@@ -185,7 +185,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
           borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(
-          horizontal: AppConstants.paddingMedium,
+          horizontal: AppConstantsSpacing.paddingMedium,
           vertical: 18,
         ),
         suffixIcon: Padding(
@@ -231,7 +231,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
           borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(
-          horizontal: AppConstants.paddingMedium,
+          horizontal: AppConstantsSpacing.paddingMedium,
           vertical: 18,
         ),
         suffixIcon: Padding(

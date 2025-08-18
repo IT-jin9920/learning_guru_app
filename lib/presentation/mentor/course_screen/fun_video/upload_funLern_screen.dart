@@ -81,7 +81,7 @@ class _UploadFunlernScreenState extends State<UploadFunlernScreen> {
                                 },
                               ),
                               // To ensure spacing for notch
-                              SizedBox(height: MediaQuery.of(context).padding.bottom + AppConstants.spacingExtraLarge),
+                              SizedBox(height: MediaQuery.of(context).padding.bottom + AppConstantsSpacing.spacingExtraLarge),
                             ],
                           ),
                         ),
@@ -179,11 +179,11 @@ class _UploadFunlernScreenState extends State<UploadFunlernScreen> {
           borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(
-          horizontal: AppConstants.paddingMedium,
-          vertical: AppConstants.paddingMedium,
+          horizontal: AppConstantsSpacing.paddingMedium,
+          vertical: AppConstantsSpacing.paddingMedium,
         ),
         suffixIcon: Container(
-          margin: const EdgeInsets.only(right: AppConstants.paddingMedium),
+          margin: const EdgeInsets.only(right: AppConstantsSpacing.paddingMedium),
           decoration: const BoxDecoration(
             color: AppColors.white,
             shape: BoxShape.circle,

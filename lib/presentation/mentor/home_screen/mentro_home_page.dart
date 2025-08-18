@@ -93,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(AppConstants.paddingMedium),
+                  padding: const EdgeInsets.all(AppConstantsSpacing.paddingMedium),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -121,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                         color: AppColors.text,
                                         fontWeight: FontWeight.bold,
                                       ),
-                                      SizedBox(width: AppConstants.spacingSmall),
+                                      SizedBox(width: AppConstantsSpacing.spacingSmall),
                                       SizedBox(
                                         height: screenHeight * 0.05,
                                         // 6% of screen height
@@ -218,7 +218,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                         fontSize: 12,
                         color: AppColors.primary1,
                       ),
-                      const SizedBox(height: AppConstants.spacingExtraLarge),
+                      const SizedBox(height: AppConstantsSpacing.spacingExtraLarge),
                       Row(
                         children: [
                           Expanded(
@@ -302,7 +302,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                             ),
                           ),
 
-                          const SizedBox(width: AppConstants.spacingSmall),
+                          const SizedBox(width: AppConstantsSpacing.spacingSmall),
                           Expanded(
                             child: GestureDetector(
                               onTap: (){
@@ -386,7 +386,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                           ),
                         ],
                       ),
-                      const SizedBox(height: AppConstants.spacingExtraLarge),
+                      const SizedBox(height: AppConstantsSpacing.spacingExtraLarge),
                       GestureDetector(
                         onTap: () {
                           Get.to(EarningReportScreen(),);
@@ -414,17 +414,17 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                         ),
                       ),
 
-                      const SizedBox(height: AppConstants.spacingLarge),
+                      const SizedBox(height: AppConstantsSpacing.spacingLarge),
 
                       EarningReportSwitcher(),
 
-                      const SizedBox(height: AppConstants.spacingMedium),
+                      const SizedBox(height: AppConstantsSpacing.spacingMedium),
                       Container(
                         width: double.infinity, // Full screen width
                         height: 1, // Thin line
                         color: Color(0xFFCDDCF4), // Light blue divider
                       ),
-                      const SizedBox(height: AppConstants.spacingMedium),
+                      const SizedBox(height: AppConstantsSpacing.spacingMedium),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -437,7 +437,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                 color: AppColors.text,
                               ),
 
-                              SizedBox(height: AppConstants.spacingSmall / 2),
+                              SizedBox(height: AppConstantsSpacing.spacingSmall / 2),
 
                               UIHelper.boldText(
                                 text: '\$360',
@@ -460,7 +460,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                 color: AppColors.text,
                               ),
 
-                              SizedBox(height: AppConstants.spacingSmall / 2),
+                              SizedBox(height: AppConstantsSpacing.spacingSmall / 2),
 
                               UIHelper.boldText(
                                 text: '\$1460',
@@ -472,7 +472,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                           ),
                         ],
                       ),
-                      const SizedBox(height: AppConstants.spacingMedium),
+                      const SizedBox(height: AppConstantsSpacing.spacingMedium),
                       Container(
                         width: double.infinity, // Full screen width
                         height: 1, // Thin line
@@ -487,7 +487,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                             alignment: Alignment.center,
                             child: _buildBarChart(context),
                           ),
-                          SizedBox(height: AppConstants.spacingLarge),
+                          SizedBox(height: AppConstantsSpacing.spacingLarge),
                           Container(
                             width: double.infinity, // Full screen width
                             height: 1, // Thin line

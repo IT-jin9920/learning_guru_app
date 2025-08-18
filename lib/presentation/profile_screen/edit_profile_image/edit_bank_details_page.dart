@@ -62,7 +62,7 @@ class _EditBankDetailsPageState extends State<EditBankDetailsPage> {
         body: LayoutBuilder(
           builder: (context, constraints) {
             return SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: AppConstants.paddingLarge),
+              padding: const EdgeInsets.symmetric(horizontal: AppConstantsSpacing.paddingLarge),
               child: ConstrainedBox(
                 constraints: BoxConstraints(minHeight: constraints.maxHeight),
                 child: Form(
@@ -71,18 +71,18 @@ class _EditBankDetailsPageState extends State<EditBankDetailsPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        const SizedBox(height: AppConstants.spacingLarge),
+                        const SizedBox(height: AppConstantsSpacing.spacingLarge),
                         _buildInputField('Account Holder Name', "bank-user-icon-svg.svg",  holderNameController, Validator.validateName),
-                        const SizedBox(height: AppConstants.spacingMedium),
+                        const SizedBox(height: AppConstantsSpacing.spacingMedium),
                         _buildInputField('Bank Name', "bank-icon-svg.svg", bankNameController, Validator.validateBankName),
-                        const SizedBox(height: AppConstants.spacingMedium),
+                        const SizedBox(height: AppConstantsSpacing.spacingMedium),
                         _buildInputField('Account Number', "bank-acc-icon-svg.svg", accountNumberController, Validator.validateAccountNumber, keyboardType: TextInputType.number),
-                        const SizedBox(height: AppConstants.spacingMedium),
+                        const SizedBox(height: AppConstantsSpacing.spacingMedium),
                         _buildInputField('Routing Number',"bank-number-icon-svg.svg",  routingNumberController, Validator.validateRoutingNumber, keyboardType: TextInputType.number),
       
                         const Spacer(), // Push button to bottom when possible
       
-                        const SizedBox(height: AppConstants.spacingLarge),
+                        const SizedBox(height: AppConstantsSpacing.spacingLarge),
                         // GradientButton(
                         //   text: "Proceed Further",
                         //   onTap: () {
@@ -124,7 +124,7 @@ class _EditBankDetailsPageState extends State<EditBankDetailsPage> {
                         //     }
                         //   },
                         // ),
-                        SizedBox(height: MediaQuery.of(context).padding.bottom + AppConstants.spacingLarge),
+                        SizedBox(height: MediaQuery.of(context).padding.bottom + AppConstantsSpacing.spacingLarge),
                       ],
                     ),
                   ),
@@ -134,7 +134,7 @@ class _EditBankDetailsPageState extends State<EditBankDetailsPage> {
           },
         ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppConstants.paddingLarge, vertical: 18),
+        padding: const EdgeInsets.symmetric(horizontal: AppConstantsSpacing.paddingLarge, vertical: 18),
       child:   GradientButton(
         text: "Proceed Further",
         onTap: () {
@@ -221,8 +221,8 @@ class _EditBankDetailsPageState extends State<EditBankDetailsPage> {
           borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(
-          horizontal: AppConstants.paddingMedium,
-          vertical: AppConstants.paddingMedium,
+          horizontal: AppConstantsSpacing.paddingMedium,
+          vertical: AppConstantsSpacing.paddingMedium,
         ),
         // suffixIcon: Container(
         //   margin: const EdgeInsets.only(right: AppConstants.paddingMedium),

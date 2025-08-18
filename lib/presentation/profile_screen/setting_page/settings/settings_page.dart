@@ -1,7 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
+import 'package:learning_guru_app/core/constants/api_endpoints.dart';
+import 'package:learning_guru_app/core/network/dio_client.dart';
+import 'package:learning_guru_app/data/repositories/user_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/services/storage_service.dart';
@@ -230,26 +234,27 @@ class SettingsScreen extends StatelessWidget {
   }
 
   void _showLogoutBottomSheet(BuildContext context) {
+    // Show the bottom sheet
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.transparent, // Make the background transparent
       builder: (BuildContext context) {
         return BackdropFilter(
+          // Apply a blur effect to the background
           filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
           child: Padding(
-            padding: MediaQuery.of(context).viewInsets,
+            padding: MediaQuery.of(context).viewInsets, // Adjust padding based on screen insets
             child: Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: AppConstants.paddingLarge,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: AppConstantsSpacing.paddingLarge),
               child: Column(
-                mainAxisSize: MainAxisSize.min,
+                mainAxisSize: MainAxisSize.min, // Keep the column height to a minimum
                 children: [
-                  const SizedBox(height: AppConstants.spacingExtraLarge * 2),
+                  const SizedBox(height: AppConstantsSpacing.spacingExtraLarge * 2),
+                  // Container holding the actual content of the bottom sheet
                   Container(
                     decoration: const BoxDecoration(
-                      color: AppColors.white,
+                      color: AppColors.white, // White background
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(32),
                         topRight: Radius.circular(32),
@@ -261,9 +266,9 @@ class SettingsScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 30),
                           child: Container(
-                            height: 150,
+                            height: 150, // Icon's container height
                             decoration: const BoxDecoration(
-                              color: Color(0xffe2eafb),
+                              color: Color(0xffe2eafb), // Light blue color for the container
                               borderRadius: BorderRadius.only(
                                 bottomRight: Radius.circular(30),
                                 bottomLeft: Radius.circular(30),
@@ -274,15 +279,17 @@ class SettingsScreen extends StatelessWidget {
                                 height: 80,
                                 width: 80,
                                 child: UIHelper.customSvg(
-                                  svg: "big-logout-icon.svg",
+                                  svg: "big-logout-icon.svg", // Display the logout icon
                                 ),
                               ),
                             ),
                           ),
                         ),
+                        // Column for the text and buttons
                         Column(
                           children: [
                             SizedBox(height: 24),
+                            // Title Text (confirmation prompt)
                             UIHelper.boldText(
                               text: 'Sure you want to Log Out?',
                               fontSize: 18,
@@ -291,9 +298,9 @@ class SettingsScreen extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                             SizedBox(height: 16),
+                            // Subtext (additional explanation)
                             UIHelper.regularText(
-                              text:
-                                  'Are you sure you want to log out from the Learning-Guru App?',
+                              text: 'Are you sure you want to log out from the Learning-Guru App?',
                               fontSize: 14,
                               color: AppColors.grey,
                               textAlign: TextAlign.center,
@@ -303,6 +310,7 @@ class SettingsScreen extends StatelessWidget {
                               padding: const EdgeInsets.symmetric(horizontal: 16),
                               child: Row(
                                 children: [
+                                  // Back Button
                                   IconButton(
                                     icon: Container(
                                       height: 40,
@@ -313,57 +321,40 @@ class SettingsScreen extends StatelessWidget {
                                       ),
                                       padding: const EdgeInsets.all(8),
                                       child: UIHelper.customSvg(
-                                        svg: "back-arrow-icon-svg.svg",
+                                        svg: "back-arrow-icon-svg.svg", // Back arrow icon
                                       ),
                                     ),
-                                    onPressed: () => Get.back(),
+                                    onPressed: () => Get.back(), // Close the bottom sheet
                                   ),
-                                  // const SizedBox(width: 12),
                                   Expanded(
+                                    // Log Out Button
                                     child: ElevatedButton(
                                       style: ElevatedButton.styleFrom(
-                                        backgroundColor: const Color(0xFF03002F),
-                                        padding: const EdgeInsets.symmetric(
-                                          vertical: 16,
-                                        ),
+                                        backgroundColor: const Color(0xFF03002F), // Button color
+                                        padding: const EdgeInsets.symmetric(vertical: 16),
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(32),
                                         ),
                                       ),
+                                      // onPressed: () async {
+                                      //   print("Logout account button pressed. Logout user data...");
+                                      //   await _logoutUser();
+                                      //
+                                      //   // Clear login data
+                                      //   //await StorageService.clearUserData();
+                                      //   // Set the login status to false
+                                      //   await StorageService.setIsLoggedIn(false);
+                                      //   await StorageService.clearUserRole();
+                                      //   //await StorageService.setRegisterStatus(false);
+                                      //   // Close bottom sheet and navigate to user selection screen
+                                      //   Get.back();
+                                      //   Get.offAll(() => const UserSelectionScreen());
+                                      // },
                                       onPressed: () async {
-                                        final prefs =
-                                            await SharedPreferences.getInstance();
-                                        await prefs
-                                            .clear(); // Clear all stored data
+                                        print("Logout account button pressed. Logging out...");
 
-                                        // Clear all saved preferences using StorageService
-                                        await StorageService.clearAll();
-
-                                        await StorageService.setIsLoggedIn(false);
-                                        await StorageService.setRegisterStatus(
-                                          false,
-                                        );
-                                        await StorageService.setProfileCompleted(
-                                          false,
-                                        );
-                                        await StorageService.setDocumentsUploaded(
-                                          false,
-                                        );
-                                        await StorageService.setBankDetailsUpdated(
-                                          false,
-                                        );
-
-                                        Get.back(); // Close bottom sheet
-
-                                        // Save language and close
-                                        Get.back();
-                                        await StorageService.getLoginRegisterStatus();
-                                        await StorageService.setLoginRegisterStatus(
-                                          true,
-                                        ); // Restore registration status
-                                        Get.offAll(
-                                          () => const UserSelectionScreen(),
-                                        );
+                                        // Call the API to log out
+                                        await _logoutUser();
                                       },
                                       child: const Text(
                                         'Log Out',
@@ -380,9 +371,7 @@ class SettingsScreen extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              height:
-                                  MediaQuery.of(context).padding.bottom +
-                                  AppConstants.spacingLarge,
+                              height: MediaQuery.of(context).padding.bottom + AppConstantsSpacing.spacingLarge,
                             ),
                           ],
                         ),
@@ -409,13 +398,11 @@ class SettingsScreen extends StatelessWidget {
           child: Padding(
             padding: MediaQuery.of(context).viewInsets,
             child: Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: AppConstants.paddingLarge,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: AppConstantsSpacing.paddingLarge),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const SizedBox(height: AppConstants.spacingExtraLarge * 2),
+                  const SizedBox(height: AppConstantsSpacing.spacingExtraLarge * 2),
                   Container(
                     decoration: const BoxDecoration(
                       color: AppColors.white,
@@ -461,8 +448,7 @@ class SettingsScreen extends StatelessWidget {
                             ),
                             SizedBox(height: 16),
                             UIHelper.regularText(
-                              text:
-                                  'Are you really want to delete your  Student account? No data can be able to recover afterwards.',
+                              text: 'Are you sure you want to delete your Student account? No data can be recovered afterwards.',
                               fontSize: 14,
                               color: AppColors.grey,
                               textAlign: TextAlign.center,
@@ -487,24 +473,28 @@ class SettingsScreen extends StatelessWidget {
                                     ),
                                     onPressed: () => Get.back(),
                                   ),
-                                  // const SizedBox(width: 12),
                                   Expanded(
                                     child: ElevatedButton(
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: const Color(0xFF03002F),
-                                        padding: const EdgeInsets.symmetric(
-                                          vertical: 16,
-                                        ),
+                                        padding: const EdgeInsets.symmetric(vertical: 16),
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(32),
                                         ),
                                       ),
-                                      onPressed: () {
-                                        // Save language and close
-                                        Get.back();
+                                      onPressed: () async {
+                                        print("Delete account button pressed. Deleting user data...");
+
+                                        // Delete all user data
+                                        await StorageService.clearAll();
+                                        print("User data deleted.");
+
+                                        // Optionally, navigate to a different screen (e.g., Login screen)
+                                        print("Navigating to UserSelectionScreen...");
+                                        Get.offAll(() => const UserSelectionScreen());
                                       },
                                       child: const Text(
-                                        'Yes Delete',
+                                        'Yes, Delete',
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontFamily: 'BeVietnamPro',
@@ -518,9 +508,7 @@ class SettingsScreen extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              height:
-                                  MediaQuery.of(context).padding.bottom +
-                                  AppConstants.spacingLarge,
+                              height: MediaQuery.of(context).padding.bottom + AppConstantsSpacing.spacingLarge,
                             ),
                           ],
                         ),
@@ -535,4 +523,60 @@ class SettingsScreen extends StatelessWidget {
       },
     );
   }
+
+  Future<void> _logoutUser() async {
+    // Show a loading indicator while logging out
+    EasyLoading.show(status: 'Logging out...');
+
+    try {
+      // Step 1: Make the API call for logout using UserRepository
+      final response = await UserRepository().logout();
+
+      // Step 2: Handle API response
+      if (response.isSuccess) {
+        // Step 3: Clear user data on successful logout
+        await StorageService.clearUserData();
+        await StorageService.setIsLoggedIn(false);
+        await StorageService.clearUserRole();
+
+        // Step 4: Show success message and navigate to the login screen
+        EasyLoading.dismiss();
+        Get.snackbar(
+          'Success',
+          'You have successfully logged out.',
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.green.shade100,
+          colorText: Colors.green.shade800,
+          duration: const Duration(seconds: 3),
+        );
+
+        // Navigate to the login screen
+        Get.offAll(() => const UserSelectionScreen());
+      } else {
+        // Step 5: Show error if logout failed
+        EasyLoading.dismiss();
+        Get.snackbar(
+          'Error',
+          'Logout failed. Please try again.',
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.red.shade100,
+          colorText: Colors.red.shade800,
+          duration: const Duration(seconds: 3),
+        );
+      }
+    } catch (e) {
+      // Handle any network or other errors
+      EasyLoading.dismiss();
+      Get.snackbar(
+        'Error',
+        'Something went wrong. Please try again later.',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.red.shade100,
+        colorText: Colors.red.shade800,
+        duration: const Duration(seconds: 3),
+      );
+      print("Error logging out: $e");
+    }
+  }
+
 }

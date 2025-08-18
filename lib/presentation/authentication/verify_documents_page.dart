@@ -238,7 +238,7 @@ class VerifyDocumentsPage extends StatelessWidget {
       // ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(
-          horizontal: AppConstants.paddingLarge,
+          horizontal: AppConstantsSpacing.paddingLarge,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -274,14 +274,14 @@ class VerifyDocumentsPage extends StatelessWidget {
               color: AppColors.textblue,
               fontWeight: FontWeight.bold,
             ),
-            const SizedBox(height: AppConstants.spacingSmall),
+            const SizedBox(height: AppConstantsSpacing.spacingSmall),
             UIHelper.mediumText(
               text:
                   'Please provide valid documents so we can verify you as Mentor.',
               fontSize: 16,
               color: AppColors.grey,
             ),
-            const SizedBox(height: AppConstants.spacingExtraLarge),
+            const SizedBox(height: AppConstantsSpacing.spacingExtraLarge),
 
             _buildDocumentSection(
               'Qualification',
@@ -292,7 +292,7 @@ class VerifyDocumentsPage extends StatelessWidget {
               docCtrl.qualificationFiles,
             ),
 
-            const SizedBox(height: AppConstants.spacingMedium),
+            const SizedBox(height: AppConstantsSpacing.spacingMedium),
             _buildDocumentSection(
               'Certificates',
               docCtrl.qualificationFiles.isEmpty
@@ -301,13 +301,13 @@ class VerifyDocumentsPage extends StatelessWidget {
               false,
               docCtrl.certificateFiles,
             ),
-            const SizedBox(height: AppConstants.spacingMedium),
+            const SizedBox(height: AppConstantsSpacing.spacingMedium),
             _buildMultiLineInputField(
               'Write your Qualifications\n(Max 300 words)',
               "bank-number-icon-svg.svg",
               qualificationDesc,
             ),
-            const SizedBox(height: AppConstants.spacingExtraLarge * 3.2),
+            const SizedBox(height: AppConstantsSpacing.spacingExtraLarge * 3.2),
 
             // GradientButton(
             //   text: "Submit",
@@ -319,14 +319,14 @@ class VerifyDocumentsPage extends StatelessWidget {
             SizedBox(
               height:
                   MediaQuery.of(context).padding.bottom +
-                  AppConstants.spacingLarge,
+                  AppConstantsSpacing.spacingLarge,
             ),
           ],
         ),
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(
-          horizontal: AppConstants.paddingLarge,
+          horizontal: AppConstantsSpacing.paddingLarge,
           vertical: 18,
         ),
         child: GradientButton(
@@ -349,8 +349,8 @@ class VerifyDocumentsPage extends StatelessWidget {
     return Obx(
       () => Container(
         padding: const EdgeInsets.symmetric(
-          horizontal: AppConstants.paddingMedium,
-          vertical: AppConstants.paddingSmall,
+          horizontal: AppConstantsSpacing.paddingMedium,
+          vertical: AppConstantsSpacing.paddingSmall,
         ),
         decoration: BoxDecoration(
           color: AppColors.roundbg,
@@ -374,7 +374,7 @@ class VerifyDocumentsPage extends StatelessWidget {
                     color: AppColors.white,
                   ),
                 ),
-                const SizedBox(width: AppConstants.spacingMedium),
+                const SizedBox(width: AppConstantsSpacing.spacingMedium),
                 Expanded(
                   // child: Text(
                   //   category,
@@ -393,8 +393,8 @@ class VerifyDocumentsPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(28),
                   child: Container(
                     padding: const EdgeInsets.symmetric(
-                      horizontal: AppConstants.paddingMedium,
-                      vertical: AppConstants.paddingSmall,
+                      horizontal: AppConstantsSpacing.paddingMedium,
+                      vertical: AppConstantsSpacing.paddingSmall,
                     ),
                     decoration: BoxDecoration(
                       color: AppColors.white,
@@ -412,7 +412,7 @@ class VerifyDocumentsPage extends StatelessWidget {
                       children: [
                         Icon(
                           Icons.add_circle_outline,
-                          size: AppConstants.iconSizeSmall,
+                          size: AppConstantsSpacing.iconSizeSmall,
                           color: AppColors.primary1,
                         ),
                         SizedBox(width: 6),
@@ -434,7 +434,7 @@ class VerifyDocumentsPage extends StatelessWidget {
             ),
             if (files.isNotEmpty)
               Padding(
-                padding: const EdgeInsets.only(top: AppConstants.paddingSmall),
+                padding: const EdgeInsets.only(top: AppConstantsSpacing.paddingSmall),
                 child: Column(
                   children: files.asMap().entries.map((entry) {
                     final index = entry.key;
@@ -459,8 +459,8 @@ class VerifyDocumentsPage extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 2),
       padding: const EdgeInsets.symmetric(
-        horizontal: AppConstants.paddingMedium,
-        vertical: AppConstants.paddingSmall,
+        horizontal: AppConstantsSpacing.paddingMedium,
+        vertical: AppConstantsSpacing.paddingSmall,
       ),
       decoration: BoxDecoration(
         color: const Color(0xffccdaf2),
@@ -470,7 +470,7 @@ class VerifyDocumentsPage extends StatelessWidget {
         children: [
           // const Icon(Icons.description_outlined, color: AppColors.grey, size: AppConstants.iconSizeSmall),
           UIHelper.customSvg(svg: "documnts-icon.svg", height: 16, width: 16),
-          const SizedBox(width: AppConstants.spacingSmall),
+          const SizedBox(width: AppConstantsSpacing.spacingSmall),
           Expanded(
             child: Text(
               fileName,
@@ -533,8 +533,8 @@ class VerifyDocumentsPage extends StatelessWidget {
           borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(
-          horizontal: AppConstants.paddingMedium,
-          vertical: AppConstants.paddingMedium,
+          horizontal: AppConstantsSpacing.paddingMedium,
+          vertical: AppConstantsSpacing.paddingMedium,
         ),
         suffixIcon: Container(
           height: 50,
@@ -564,12 +564,12 @@ class VerifyDocumentsPage extends StatelessWidget {
             padding: MediaQuery.of(context).viewInsets,
             child: Container(
               padding: const EdgeInsets.symmetric(
-                horizontal: AppConstants.paddingLarge,
+                horizontal: AppConstantsSpacing.paddingLarge,
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const SizedBox(height: AppConstants.spacingExtraLarge * 2),
+                  const SizedBox(height: AppConstantsSpacing.spacingExtraLarge * 2),
                   Container(
                     decoration: const BoxDecoration(
                       color: AppColors.white,
@@ -613,7 +613,7 @@ class VerifyDocumentsPage extends StatelessWidget {
                         ),
                         Padding(
                           padding: const EdgeInsets.all(
-                            AppConstants.paddingLarge,
+                            AppConstantsSpacing.paddingLarge,
                           ),
                           child: Column(
                             children: [
@@ -627,7 +627,7 @@ class VerifyDocumentsPage extends StatelessWidget {
                                 ),
                                 textAlign: TextAlign.center,
                               ),
-                              const SizedBox(height: AppConstants.spacingSmall),
+                              const SizedBox(height: AppConstantsSpacing.spacingSmall),
                               const Text(
                                 'Your details are submitted to the Admin for verification, once your details are been verified, we will update you.',
                                 style: TextStyle(
@@ -638,7 +638,7 @@ class VerifyDocumentsPage extends StatelessWidget {
                                 textAlign: TextAlign.center,
                               ),
                               const SizedBox(
-                                height: AppConstants.spacingExtraLarge,
+                                height: AppConstantsSpacing.spacingExtraLarge,
                               ),
                               GestureDetector(
                                 onTap: () async {

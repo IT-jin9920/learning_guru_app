@@ -59,6 +59,10 @@ dependencies:
 
   flutter_speed_dial: ^7.0.0
 
+  dio:
+  flutter_easyloading:
+  pretty_dio_logger:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

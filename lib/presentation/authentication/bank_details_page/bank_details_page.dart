@@ -60,7 +60,7 @@ class _BankDetailsPageState extends State<BankDetailsPage> {
         //   toolbarHeight: 80,
         // ),
         body: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: AppConstants.paddingLarge),
+          padding: const EdgeInsets.symmetric(horizontal: AppConstantsSpacing.paddingLarge),
           child: Form(
             key: _formKey,
             child: Column(
@@ -97,7 +97,7 @@ class _BankDetailsPageState extends State<BankDetailsPage> {
                   color: AppColors.textblue,
                   fontWeight: FontWeight.bold,
                 ),
-                const SizedBox(height: AppConstants.spacingSmall),
+                const SizedBox(height: AppConstantsSpacing.spacingSmall),
 
                 UIHelper.mediumText(
                   text:
@@ -107,15 +107,15 @@ class _BankDetailsPageState extends State<BankDetailsPage> {
                   fontWeight: FontWeight.normal,
                 ),
 
-                const SizedBox(height: AppConstants.spacingExtraLarge),
+                const SizedBox(height: AppConstantsSpacing.spacingExtraLarge),
                 _buildInputField('Account Holder Name', "bank-user-icon-svg.svg",  holderNameController, Validator.validateName),
-                const SizedBox(height: AppConstants.spacingMedium),
+                const SizedBox(height: AppConstantsSpacing.spacingMedium),
                 _buildInputField('Bank Name', "bank-icon-svg.svg", bankNameController, Validator.validateBankName),
-                const SizedBox(height: AppConstants.spacingMedium),
+                const SizedBox(height: AppConstantsSpacing.spacingMedium),
                 _buildInputField('Account Number', "bank-acc-icon-svg.svg", accountNumberController, Validator.validateAccountNumber, keyboardType: TextInputType.number),
-                const SizedBox(height: AppConstants.spacingMedium),
+                const SizedBox(height: AppConstantsSpacing.spacingMedium),
                 _buildInputField('Routing Number',"bank-number-icon-svg.svg",  routingNumberController, Validator.validateRoutingNumber, keyboardType: TextInputType.number),
-                const SizedBox(height: AppConstants.spacingExtraLarge * 4),
+                const SizedBox(height: AppConstantsSpacing.spacingExtraLarge * 4),
 
                 // GradientButton(text: "Proceed Further",
                 //     onTap: () async {
@@ -174,14 +174,14 @@ class _BankDetailsPageState extends State<BankDetailsPage> {
                 // ),
                 SizedBox(
                     height: MediaQuery.of(context).padding.bottom +
-                        AppConstants.spacingLarge),
+                        AppConstantsSpacing.spacingLarge),
               ],
             ),
           ),
         ),
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: AppConstants.paddingLarge,
+            horizontal: AppConstantsSpacing.paddingLarge,
             vertical: 18,
           ),
           child: GradientButton(text: "Proceed Further",
@@ -284,8 +284,8 @@ class _BankDetailsPageState extends State<BankDetailsPage> {
           borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(
-          horizontal: AppConstants.paddingMedium,
-          vertical: AppConstants.paddingMedium,
+          horizontal: AppConstantsSpacing.paddingMedium,
+          vertical: AppConstantsSpacing.paddingMedium,
         ),
         // suffixIcon: Container(
         //   margin: const EdgeInsets.only(right: 4),

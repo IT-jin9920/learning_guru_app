@@ -51,7 +51,7 @@ class SetupProfileScreen extends StatelessWidget {
           //backgroundColor: AppColors.white,
           body: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(
-              horizontal: AppConstants.paddingLarge,
+              horizontal: AppConstantsSpacing.paddingLarge,
             ),
             child: Column(
               children: [
@@ -59,19 +59,19 @@ class SetupProfileScreen extends StatelessWidget {
                 SizedBox(
                   height:
                       MediaQuery.of(context).padding.top +
-                      AppConstants.spacingLarge,
+                      AppConstantsSpacing.spacingLarge,
                 ),
                 Align(
                   alignment: Alignment.topCenter,
                   child: UIHelper.customSvg(svg: "small-user-svg.svg"),
                 ),
-                const SizedBox(height: AppConstants.spacingMedium),
+                const SizedBox(height: AppConstantsSpacing.spacingMedium),
                 UIHelper.boldText(
                   text: 'Setup your Profile',
                   fontSize: 24,
                   color: AppColors.textblue,
                 ),
-                const SizedBox(height: AppConstants.spacingSmall),
+                const SizedBox(height: AppConstantsSpacing.spacingSmall),
                 UIHelper.mediumText(
                   text:
                       'Fill out the below details to get into the\nNowTow app!',
@@ -79,9 +79,9 @@ class SetupProfileScreen extends StatelessWidget {
                   color: AppColors.grey,
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: AppConstants.spacingExtraLarge),
+                const SizedBox(height: AppConstantsSpacing.spacingExtraLarge),
                 const UploadProfilePhotoWidget(),
-                const SizedBox(height: AppConstants.spacingExtraLarge * 2),
+                const SizedBox(height: AppConstantsSpacing.spacingExtraLarge * 2),
                 // GradientButton(
                 //   text: "Proceed Further",
                 //   onTap: () {
@@ -97,14 +97,14 @@ class SetupProfileScreen extends StatelessWidget {
                 SizedBox(
                   height:
                       MediaQuery.of(context).padding.bottom +
-                      AppConstants.spacingLarge,
+                      AppConstantsSpacing.spacingLarge,
                 ),
               ],
             ),
           ),
           bottomNavigationBar: Padding(
             padding: const EdgeInsets.symmetric(
-              horizontal: AppConstants.paddingLarge,
+              horizontal: AppConstantsSpacing.paddingLarge,
               vertical: 18,
             ),
             child: GradientButton(

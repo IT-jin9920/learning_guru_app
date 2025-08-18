@@ -47,6 +47,10 @@ class StorageService {
     return _prefs.getString('selected_role');
   }
 
+  static Future<void> clearUserRole() async {
+    await _prefs.remove('selected_role');
+  }
+
   static Future<void> setLoginStatus(bool isLoggedIn) async {
     await _prefs.setBool('is_logged_in', isLoggedIn);
   }
@@ -159,6 +163,23 @@ class StorageService {
     return _prefs.getBool('walkthrough_completed') ?? false;
   }
 
+  static String? getUserRoleSync() {
+    return _prefs.getString('selected_role');
+  }
+
+  /// Clear only user-related data (logout purpose)
+  static Future<void> clearUserData() async {
+    await _prefs.remove('selected_role');
+    await _prefs.remove('is_logged_in');
+    await _prefs.remove('is_registered');
+    await _prefs.remove('is_Loginregistered');
+    await _prefs.remove('profile_completed');
+    await _prefs.remove('mentoring_setupScreen');
+    await _prefs.remove('documents_uploaded');
+    await _prefs.remove('bank_updated');
+    await _prefs.remove('user_phone');
+    await _prefs.remove('user_email');
+  }
 
 
 }

@@ -54,7 +54,7 @@ class _EarningReportSwitcherState extends State<EarningReportSwitcher> {
           child: Container(
             height: 36,
             padding: const EdgeInsets.symmetric(
-              horizontal: AppConstants.paddingMedium,
+              horizontal: AppConstantsSpacing.paddingMedium,
             ),
             decoration: BoxDecoration(
               color: const Color(0xffCEDBF1),
@@ -70,7 +70,7 @@ class _EarningReportSwitcherState extends State<EarningReportSwitcher> {
           ),
         ),
 
-        const SizedBox(width: AppConstants.spacingSmall),
+        const SizedBox(width: AppConstantsSpacing.spacingSmall),
 
         /// ⬅️➡️ Arrows Container
         Container(

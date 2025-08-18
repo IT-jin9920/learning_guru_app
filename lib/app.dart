@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:learning_guru_app/res/getx_localization/languages.dart';
+import 'package:learning_guru_app/theme/app_theme.dart';
 import 'routes/app_routes.dart';
 import 'routes/routes_name.dart';
 
@@ -133,9 +135,12 @@ class LearningGuruApp extends StatelessWidget {
 
      // home: const PollCreate(),
 
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system, // Respect system light/dark theme
       // Transitions (optional)
       defaultTransition: Transition.fadeIn,
+      builder: EasyLoading.init(),
     );
 
   }

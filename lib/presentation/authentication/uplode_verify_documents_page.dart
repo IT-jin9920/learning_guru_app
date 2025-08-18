@@ -52,11 +52,11 @@ class _UplodeVerifyDocumentsPageState extends State<UplodeVerifyDocumentsPage> {
           child: Padding(
             padding: MediaQuery.of(context).viewInsets,
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: AppConstants.paddingLarge),
+              padding: const EdgeInsets.symmetric(horizontal: AppConstantsSpacing.paddingLarge),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const SizedBox(height: AppConstants.spacingExtraLarge * 2),
+                  const SizedBox(height: AppConstantsSpacing.spacingExtraLarge * 2),
                   Container(
                     decoration: const BoxDecoration(
                       color: AppColors.white,
@@ -104,7 +104,7 @@ class _UplodeVerifyDocumentsPageState extends State<UplodeVerifyDocumentsPage> {
 
                         // ✅ Text and Button Section
                         Padding(
-                          padding: const EdgeInsets.all(AppConstants.paddingLarge),
+                          padding: const EdgeInsets.all(AppConstantsSpacing.paddingLarge),
                           child: Column(
                             children: [
                               const Text(
@@ -117,7 +117,7 @@ class _UplodeVerifyDocumentsPageState extends State<UplodeVerifyDocumentsPage> {
                                 ),
                                 textAlign: TextAlign.center,
                               ),
-                              const SizedBox(height: AppConstants.spacingSmall),
+                              const SizedBox(height: AppConstantsSpacing.spacingSmall),
                               const Text(
                                 'Your details are submitted to the Admin for verification, once your details are been verified, we will update you.',
                                 style: TextStyle(
@@ -127,7 +127,7 @@ class _UplodeVerifyDocumentsPageState extends State<UplodeVerifyDocumentsPage> {
                                 ),
                                 textAlign: TextAlign.center,
                               ),
-                              const SizedBox(height: AppConstants.spacingExtraLarge),
+                              const SizedBox(height: AppConstantsSpacing.spacingExtraLarge),
                               // ✅ Okay Button
                               GestureDetector(
                                 onTap: () {
@@ -186,7 +186,7 @@ class _UplodeVerifyDocumentsPageState extends State<UplodeVerifyDocumentsPage> {
         toolbarHeight: 80,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: AppConstants.paddingLarge),
+        padding: const EdgeInsets.symmetric(horizontal: AppConstantsSpacing.paddingLarge),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -199,7 +199,7 @@ class _UplodeVerifyDocumentsPageState extends State<UplodeVerifyDocumentsPage> {
                 color: AppColors.primary1,
               ),
             ),
-            const SizedBox(height: AppConstants.spacingSmall),
+            const SizedBox(height: AppConstantsSpacing.spacingSmall),
             Text(
               'Please provide us your valid Documentation so that we can verify you as Mentor',
               style: TextStyle(
@@ -208,12 +208,12 @@ class _UplodeVerifyDocumentsPageState extends State<UplodeVerifyDocumentsPage> {
                 color: AppColors.grey,
               ),
             ),
-            const SizedBox(height: AppConstants.spacingExtraLarge),
+            const SizedBox(height: AppConstantsSpacing.spacingExtraLarge),
 
             _buildDocumentSection('Qualification', Icons.description_outlined, _qualificationDocuments),
-            const SizedBox(height: AppConstants.spacingMedium),
+            const SizedBox(height: AppConstantsSpacing.spacingMedium),
             _buildDocumentSection('Certificates', Icons.description_outlined, _certificateDocuments),
-            const SizedBox(height: AppConstants.spacingMedium),
+            const SizedBox(height: AppConstantsSpacing.spacingMedium),
             _buildMultiLineInputField('Write your Qualifications\n(Max 300 words)', Icons.description_outlined),
             const SizedBox(height: 20),
 
@@ -233,7 +233,7 @@ class _UplodeVerifyDocumentsPageState extends State<UplodeVerifyDocumentsPage> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(28),
                 ),
-                padding: const EdgeInsets.symmetric(vertical: AppConstants.paddingMedium),
+                padding: const EdgeInsets.symmetric(vertical: AppConstantsSpacing.paddingMedium),
                 textStyle: const TextStyle(
                   fontFamily: 'BeVietnamPro',
                   fontSize: 18,
@@ -244,12 +244,12 @@ class _UplodeVerifyDocumentsPageState extends State<UplodeVerifyDocumentsPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text('Submit'),
-                  SizedBox(width: AppConstants.spacingSmall),
+                  SizedBox(width: AppConstantsSpacing.spacingSmall),
                   Icon(Icons.arrow_forward),
                 ],
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).padding.bottom + AppConstants.spacingLarge),
+            SizedBox(height: MediaQuery.of(context).padding.bottom + AppConstantsSpacing.spacingLarge),
           ],
         ),
       ),
@@ -259,8 +259,8 @@ class _UplodeVerifyDocumentsPageState extends State<UplodeVerifyDocumentsPage> {
   Widget _buildDocumentSection(String category, IconData leadingIcon, List<String> documents) {
     return Container(
       padding: const EdgeInsets.symmetric(
-        horizontal: AppConstants.paddingMedium,
-        vertical: AppConstants.paddingSmall,
+        horizontal: AppConstantsSpacing.paddingMedium,
+        vertical: AppConstantsSpacing.paddingSmall,
       ),
       decoration: BoxDecoration(
         color: AppColors.roundbg,
@@ -276,9 +276,9 @@ class _UplodeVerifyDocumentsPageState extends State<UplodeVerifyDocumentsPage> {
                   color: AppColors.text,
                   shape: BoxShape.circle,
                 ),
-                child: Icon(leadingIcon, color: AppColors.white, size: AppConstants.iconSizeMedium),
+                child: Icon(leadingIcon, color: AppColors.white, size: AppConstantsSpacing.iconSizeMedium),
               ),
-              const SizedBox(width: AppConstants.spacingMedium),
+              const SizedBox(width: AppConstantsSpacing.spacingMedium),
               Expanded(
                 child: Text(
                   category,
@@ -295,8 +295,8 @@ class _UplodeVerifyDocumentsPageState extends State<UplodeVerifyDocumentsPage> {
                 borderRadius: BorderRadius.circular(28),
                 child: Container(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: AppConstants.paddingMedium,
-                    vertical: AppConstants.paddingSmall,
+                    horizontal: AppConstantsSpacing.paddingMedium,
+                    vertical: AppConstantsSpacing.paddingSmall,
                   ),
                   decoration: BoxDecoration(
                     color: AppColors.white,
@@ -312,7 +312,7 @@ class _UplodeVerifyDocumentsPageState extends State<UplodeVerifyDocumentsPage> {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: const [
-                      Icon(Icons.add_circle_outline, size: AppConstants.iconSizeSmall, color: AppColors.primary1),
+                      Icon(Icons.add_circle_outline, size: AppConstantsSpacing.iconSizeSmall, color: AppColors.primary1),
                       SizedBox(width: 6),
                       Text(
                         'Upload',
@@ -332,7 +332,7 @@ class _UplodeVerifyDocumentsPageState extends State<UplodeVerifyDocumentsPage> {
           ),
           if (documents.isNotEmpty)
             Padding(
-              padding: const EdgeInsets.only(top: AppConstants.paddingSmall),
+              padding: const EdgeInsets.only(top: AppConstantsSpacing.paddingSmall),
               child: Column(
                 children: documents.asMap().entries.map((entry) {
                   int idx = entry.key;
@@ -354,8 +354,8 @@ class _UplodeVerifyDocumentsPageState extends State<UplodeVerifyDocumentsPage> {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 2),
       padding: const EdgeInsets.symmetric(
-        horizontal: AppConstants.paddingMedium,
-        vertical: AppConstants.paddingSmall,
+        horizontal: AppConstantsSpacing.paddingMedium,
+        vertical: AppConstantsSpacing.paddingSmall,
       ),
       decoration: BoxDecoration(
         color: const Color(0xffccdaf2),
@@ -363,8 +363,8 @@ class _UplodeVerifyDocumentsPageState extends State<UplodeVerifyDocumentsPage> {
       ),
       child: Row(
         children: [
-          const Icon(Icons.description_outlined, color: AppColors.grey, size: AppConstants.iconSizeSmall),
-          const SizedBox(width: AppConstants.spacingSmall),
+          const Icon(Icons.description_outlined, color: AppColors.grey, size: AppConstantsSpacing.iconSizeSmall),
+          const SizedBox(width: AppConstantsSpacing.spacingSmall),
           Expanded(
             child: Text(
               fileName,
@@ -377,7 +377,7 @@ class _UplodeVerifyDocumentsPageState extends State<UplodeVerifyDocumentsPage> {
           ),
           GestureDetector(
             onTap: onRemove,
-            child: const Icon(Icons.delete_outline_rounded, color: AppColors.grey, size: AppConstants.iconSizeMedium),
+            child: const Icon(Icons.delete_outline_rounded, color: AppColors.grey, size: AppConstantsSpacing.iconSizeMedium),
           ),
         ],
       ),
@@ -408,17 +408,17 @@ class _UplodeVerifyDocumentsPageState extends State<UplodeVerifyDocumentsPage> {
           borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(
-          horizontal: AppConstants.paddingMedium,
-          vertical: AppConstants.paddingMedium,
+          horizontal: AppConstantsSpacing.paddingMedium,
+          vertical: AppConstantsSpacing.paddingMedium,
         ),
         suffixIcon: Container(
-          margin: const EdgeInsets.only(right: AppConstants.paddingMedium),
+          margin: const EdgeInsets.only(right: AppConstantsSpacing.paddingMedium),
           decoration: const BoxDecoration(
             color: AppColors.white,
             shape: BoxShape.circle,
           ),
           padding: const EdgeInsets.all(8),
-          child: Icon(suffixIcon, color: AppColors.grey, size: AppConstants.iconSizeMedium),
+          child: Icon(suffixIcon, color: AppColors.grey, size: AppConstantsSpacing.iconSizeMedium),
         ),
       ),
     );

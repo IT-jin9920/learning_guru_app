@@ -68,7 +68,7 @@ class StudentHomePage extends StatelessWidget {
                                           color: AppColors.text,
                                           fontWeight: FontWeight.bold,
                                         ),
-                                        SizedBox(width: AppConstants.spacingSmall),
+                                        SizedBox(width: AppConstantsSpacing.spacingSmall),
                                         SizedBox(
                                           height: screenHeight * 0.05,
                                           width: screenWidth * 0.10,
@@ -103,7 +103,7 @@ class StudentHomePage extends StatelessWidget {
                             ),
                           ),
 
-                          const SizedBox(height: AppConstants.spacingSmall),
+                          const SizedBox(height: AppConstantsSpacing.spacingSmall),
 
                           /// Search Field
                           Row(
@@ -195,7 +195,7 @@ class StudentHomePage extends StatelessWidget {
                             ),
                           ),
 
-                          const SizedBox(height: AppConstants.spacingMedium),
+                          const SizedBox(height: AppConstantsSpacing.spacingMedium),
 
                           /// Horizontal upcoming sessions
                           SingleChildScrollView(

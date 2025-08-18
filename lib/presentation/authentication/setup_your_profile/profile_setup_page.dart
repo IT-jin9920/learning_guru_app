@@ -80,7 +80,7 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
         // ),
         body: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(
-            horizontal: AppConstants.paddingLarge,
+            horizontal: AppConstantsSpacing.paddingLarge,
           ),
           child: Form(
             key: _formKey,
@@ -126,20 +126,20 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
                   fontSize: 32,
                   color: AppColors.textblue,
                 ),
-                const SizedBox(height: AppConstants.spacingSmall),
+                const SizedBox(height: AppConstantsSpacing.spacingSmall),
                 UIHelper.mediumText(
                   text: 'Provide us a little more details about you',
                   fontSize: 14,
                   color: AppColors.grey,
                   textAlign: TextAlign.start,
                 ),
-                const SizedBox(height: AppConstants.spacingExtraLarge),
+                const SizedBox(height: AppConstantsSpacing.spacingExtraLarge),
                 _buildInputField(
                   'Full Name',
                   "user-svg-icon.svg",
                   nameController,
                 ),
-                const SizedBox(height: AppConstants.spacingMedium),
+                const SizedBox(height: AppConstantsSpacing.spacingMedium),
 
                 userRole == 'student' ? Column(
                   children: [
@@ -150,7 +150,7 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
                       ageController,
                       keyboardType: TextInputType.phone,
                     ),
-                    const SizedBox(height: AppConstants.spacingMedium),
+                    const SizedBox(height: AppConstantsSpacing.spacingMedium),
                     _buildInputField(
                       'Your Education',
                       "bag-iocon.svg",
@@ -167,20 +167,20 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
                       phoneController,
                       keyboardType: TextInputType.phone,
                     ),
-                    const SizedBox(height: AppConstants.spacingMedium),
+                    const SizedBox(height: AppConstantsSpacing.spacingMedium),
                     _buildInputField(
                       'Email ID',
                       "email-icon-svg.svg",
                       emailController,
                       keyboardType: TextInputType.emailAddress,
                     ),
-                    const SizedBox(height: AppConstants.spacingMedium),
+                    const SizedBox(height: AppConstantsSpacing.spacingMedium),
                     _buildMultiLineInputField(
                       'Write About you (Max 300 words)',
                       "about-svg-icon.svg",
                       aboutController,
                     ),
-                    const SizedBox(height: AppConstants.spacingExtraLarge * 2.8),
+                    const SizedBox(height: AppConstantsSpacing.spacingExtraLarge * 2.8),
                   ],
                 ),
 
@@ -226,14 +226,14 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
                 // ),
                 SizedBox(
                     height: MediaQuery.of(context).padding.bottom +
-                        AppConstants.spacingLarge),
+                        AppConstantsSpacing.spacingLarge),
               ],
             ),
           ),
         ),
         bottomNavigationBar:   Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: AppConstants.paddingLarge,
+            horizontal: AppConstantsSpacing.paddingLarge,
             vertical: 18,
           ),
           child: userRole == 'student' ?
@@ -328,7 +328,7 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
           borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(
-          horizontal: AppConstants.paddingMedium,
+          horizontal: AppConstantsSpacing.paddingMedium,
           vertical: 18,
         ),
         suffixIcon: Padding(
@@ -377,7 +377,7 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
           borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(
-          horizontal: AppConstants.paddingMedium,
+          horizontal: AppConstantsSpacing.paddingMedium,
           vertical: 18,
         ),
         suffixIcon: Padding(
